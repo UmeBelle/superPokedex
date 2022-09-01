@@ -1,0 +1,93 @@
+[
+  {
+    "id": "#001",
+    "title": "base stats",
+    "hp": 45,
+    "atk": 49,
+    "def": 49,
+    "stak": 65,
+    "sdef": 65,
+    "spd": 45
+  },
+
+  {
+    "id": "#004",
+    "title": "base stats",
+    "hp": 39,
+    "atk": 62,
+    "def": 43,
+    "stak": 60,
+    "sdef": 50,
+    "spd": 65
+  },
+  {
+    "id": "#007",
+    "title": "base stats",
+    "hp": 44,
+    "atk": 48,
+    "def": 65,
+    "stak": 50,
+    "sdef": 64,
+    "spd": 43
+  },
+  {
+    "id": "#012",
+    "title": "base stats",
+    "hp": 60,
+    "atk": 45,
+    "def": 50,
+    "stak": 90,
+    "sdef": 80,
+    "spd": 70
+  },
+  {
+    "id": "#025",
+    "title": "base stats",
+    "hp": 35,
+    "atk": 55,
+    "def": 40,
+    "stak": 50,
+    "sdef": 50,
+    "spd": 90
+  },
+  {
+    "id": "#092",
+    "title": "base stats",
+    "hp": 30,
+    "atk": 35,
+    "def": 30,
+    "stak": 100,
+    "sdef": 35,
+    "spd": 80
+  },
+  {
+    "id": "#132",
+    "title": "base stats",
+    "hp": 48,
+    "atk": 48,
+    "def": 48,
+    "stak": 48,
+    "sdef": 48,
+    "spd": 48
+  },
+  {
+    "id": "#152",
+    "title": "base stats",
+    "hp": 100,
+    "atk": 100,
+    "def": 100,
+    "stak": 100,
+    "sdef": 100,
+    "spd": 100
+  },
+  {
+    "id": "#304",
+    "title": "base stats",
+    "hp": 50,
+    "atk": 70,
+    "def": 100,
+    "stak": 40,
+    "sdef": 40,
+    "spd": 30
+  }
+]

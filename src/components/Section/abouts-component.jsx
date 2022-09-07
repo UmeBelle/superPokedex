@@ -1,5 +1,6 @@
 import "./abouts-component.css"
-import POKE_ARRAY from "../../../data";
+import POKE_ARRAY from "../../data";
+import React from "react";
 
 const Porcentajes = () => {
   

@@ -1,23 +1,20 @@
-import logo from "./logo.svg";
+import Pokedex from "./components/Section/abouts-component";
+import Card from "./components/Section/card-pokemon";
 import "./App.css";
+import POKE_ARRAY from "./data";
+import React from "react";
 
 function App() {
-  const pokemons = [
-    "Pikachua",
-    "Bulbasaur",
-    "Mew",
-    "Aron",
-    "Abra",
-    "Snorlax",
-    "Psyduck",
-  ];
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <Searcher pokemons={pokemons} />
-      </header>
+      
+      <Card/>
     </div>
   );
 }
 
 export default App;
+

@@ -1,6 +1,6 @@
 import "./card-pokemon.css"
 import React from "react"
-import POKE_ARRAY from "../../../data"
+import POKE_ARRAY from "../../data"
 import Porcentajes from "./abouts-component"
 
 

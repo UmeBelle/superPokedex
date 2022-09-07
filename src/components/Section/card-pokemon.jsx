@@ -3,19 +3,50 @@ import React from "react"
 import POKE_ARRAY from "../../data";
 import Porcentajes from "./abouts-component"
 import { useParams } from "react-router-dom";
-
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 const Card = () => {
     
+        let {nombre} = useParams()
+        let navigate =  useNavigate()
         function getPokemon(nombre) {
         return POKE_ARRAY.find((pokemon) => pokemon.nombre === nombre);
         }
 
-    let {nombre} = useParams()
     let pokemon = getPokemon(nombre);
     
-    console.log(nombre)
+    
+
+    function moverIzquierda ()  {
+        let index = POKE_ARRAY.findIndex((pokemon) => pokemon.nombre === nombre)
+
+        if(index === 0){
+            let pokemonAnterior = POKE_ARRAY[POKE_ARRAY.length - 1]
+            navigate("/" + pokemonAnterior.nombre)
+            return
+        }
+        
+        let pokemonAnterior = POKE_ARRAY[index - 1]
+        navigate("/" + pokemonAnterior.nombre)
+
+       
+    }
+
+    function moverDerecha () {
+        let index = POKE_ARRAY.findIndex((pokemon) => pokemon.nombre === nombre)
+
+        if (index === POKE_ARRAY.length - 1){
+            let pokemonSiguiente = POKE_ARRAY[0]
+            navigate("/" + pokemonSiguiente.nombre)
+            return
+        }
+
+        let pokemonSiguiente = POKE_ARRAY[index + 1]
+        navigate("/" + pokemonSiguiente.nombre)
+        
+    }
 
     return (
         <div className="Contenedor-principal">
@@ -24,9 +55,14 @@ const Card = () => {
                 <div className="Fondo-pokeball">
                     <img className="Imagen-pokeball" src="./Img/pokeball-blanca.png" alt="pokeball"/>
                 </div>
+                <div className="botones-derecha-izquierda">
+                   <button onClick={moverIzquierda}>izquierda</button>
+                    <button onClick={moverDerecha}>derecha</button> 
+                </div>
+                
                 <div className="Contenedor-name-id-pk">
                     <div className="Contenedor-nombre-pokemon">
-                        <img className="Boton-atras-flecha" src="./Img/flecha-izquierda-blanca.png" alt="Boton para regresar" />
+                        <Link to="/"><img className="Boton-atras-flecha" src="./Img/flecha-izquierda-blanca.png" alt="Boton para regresar" /></Link>
                         <h2 className="Nombre-pokemon">{pokemon.nombre}</h2>
                     </div>
                     <div className="ID-pokemon">
@@ -43,7 +79,7 @@ const Card = () => {
                     </ul>
                 </div>
                 <div className="Peso-altura-movimientos">
-                    <h2 className={`About ${pokemon.tipo}`} style={{background: "white"}}>About</h2>
+                    <h2 className={`About ${pokemon.tipo}`} style={{background  : "white"}}>About</h2>
                     <div className="atributos-pokemon">
                         <div className="div-weight">
                             <div className="imagenYPeso">

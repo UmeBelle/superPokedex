@@ -314,3 +314,11 @@ body {
 .texto-base-stats {
     color: #74cb48;
 }
+
+.botones-derecha-izquierda {
+    height: 100%;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+}

@@ -1,0 +1,176 @@
+
+*{
+    margin: 0;
+    
+}
+
+.skills {
+    
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.skills-tech {
+    width: 25%;
+    height: 100%;
+    border-right: 1px solid rgba(128, 128, 128, 0.363);
+    font-weight: bolder;
+    font-size: 10px;
+    padding: 3px
+}
+
+.skills-bar
+ {
+    width: 200px;
+    height: 4px;
+    background-color: #999;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    opacity: .2;
+}
+
+.container-skills-bar{
+display: flex;
+}
+
+.card {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    font-size: small;
+}
+
+.container-porcentaje {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+
+.container-porcentaje > p {
+    color: black;
+    margin-left: 10px;
+    font-size: x-small;
+}
+.card-title {
+    justify-content: center;
+    align-items: center;
+}
+
+.barra-porcentaje
+ {
+    height: 4px;
+    content: "";
+    position: absolute;
+    background-color: black;
+    transition: .5s;
+    
+}
+
+.skills-bar-70::after {
+transform: translateX(70%);
+}
+
+
+
+.Rock {
+    background-color: #b69e31;
+    color: #b69e31;
+}
+
+.Ghost {
+    background-color: #70559b;
+    color: #70559b;
+}
+
+.Steel {
+    background-color: #b7b9d0;
+    color: #b7b9d0;
+}
+
+.Water {
+    background-color: #6493eb;
+    color: #6493eb;
+    
+}
+
+.Grass {
+    color: #74cb48;
+    background-color: #74cb48;
+}
+
+.Psychic {
+    background-color: #fb5584;
+    color: #fb5584;
+}
+
+.Ice {
+    background-color: #9ad6df;
+    color: #9ad6df;
+}
+
+.Dark {
+    background-color: #75574c;
+    color: #75574c;
+}
+
+.Fairy {
+    background-color: #e69eac;
+    color: #e69eac;
+}
+
+.Normal {
+    background-color: #aaa67f;
+    color: #aaa67f;
+}
+
+.Fighting {
+    background-color: #c12239;
+    color: #c12239;
+}
+
+.Flying {
+    background-color: #a891ec;
+    color: #a891ec;
+}
+
+.Poison {
+    background-color: #a43e9e;
+    color: #a43e9e;
+}
+
+.Ground {
+    background-color: #dec16b;
+    color: #dec16b;
+}
+
+.Bug {
+    background-color: #a7b723;
+    color: #a7b723;
+}
+
+.Fire {
+    background-color: #f57d31;
+    color: #f57d31;
+}
+
+.Electric {
+    background-color: #f9cf30;
+    color: #f9cf30;
+}
+
+.Dragon {
+    background-color: #7037ff;
+    color: #7037ff;
+}
+
+.hp-pokemon {
+    color: black;
+}

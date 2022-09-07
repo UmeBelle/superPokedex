@@ -56,8 +56,8 @@ const Card = () => {
                     <img className="Imagen-pokeball" src="./Img/pokeball-blanca.png" alt="pokeball"/>
                 </div>
                 <div className="botones-derecha-izquierda">
-                   <button onClick={moverIzquierda}>izquierda</button>
-                    <button onClick={moverDerecha}>derecha</button> 
+                   <div onClick={moverIzquierda} className="mover-izquierda"> &lt; </div>
+                    <div onClick={moverDerecha} className="mover-derecha"> &gt; </div> 
                 </div>
                 
                 <div className="Contenedor-name-id-pk">

@@ -319,6 +319,35 @@ body {
     height: 100%;
     width: 100%;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     position: absolute;
+    display: flex;
 }
+
+.mover-izquierda {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    color: white;
+    display: flex;
+    justify-content: center;    
+    align-items: center;
+    font-size: 40px ;
+}
+
+
+.mover-derecha {
+    width: 185%;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    color: white;
+    display: flex;
+    justify-content: center;    
+    align-items: center;
+    font-size: 40px ;
+    display: flex;
+    float: right;
+}
+

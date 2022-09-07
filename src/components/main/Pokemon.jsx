@@ -1,6 +1,10 @@
 import { useState } from "react";
-
+import React from "react";
 import "./pokemon.css"
+import { Link, Outlet } from "react-router-dom";
+import Card from "../Section/card-pokemon";
+
+
 
 const Pokedex = ({POKE_ARRAY}) => {
 
@@ -62,25 +66,32 @@ const Pokedex = ({POKE_ARRAY}) => {
                     </div>
                 </div>
                 <div className="Input-search">
-                    <div>
+                   
                     {mostrarIcono ? <i class="fa-solid fa-magnifying-glass"></i> : <> </> }
                     <input className="input-login" type="text" onChange={handleInputChange} placeholder="  Procurar" />
-                    </div>
+                    
                 </div>
             </header>
 
             <div className="container-pokemon">
                  {filterList.map((item, i) => { return (
-                     <div key={i} className={`card-pokemon ${item.tipo[0]}`} >
+                    <>
+                     <Link key={item.nombre} className={`card-pokemon ${item.tipo[0]}`} 
+                     to={`/${item.nombre}`}
+                   
+                     >
+                        
                         <div className="foto-card-pokemon">
                             <p className="id-pokemon">{item.id}</p>
                             <img src={item.img} alt="" />
                         </div>
                         <p className="nombre-pokemon">{item.nombre}</p>
-                    </div>
+                    </Link>
+                </>
                     );
                 })}
             </div>
+            <Outlet/>
         </>
     
 )}

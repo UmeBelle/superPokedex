@@ -29,6 +29,8 @@
 .nombre-pokemon {
     grid-row: 2/3;
     color: white;
+    text-align: center;
+    margin-top: 2px;
 }
 
 img {
@@ -144,6 +146,11 @@ img {
     width: 30px;
 }
 
+.Input-search {
+    display: flex;
+    justify-content: center;
+   
+}
 
 .input-login {
     font-family:"Font Awesome 6 Free";
@@ -155,6 +162,7 @@ img {
     height: 1.3rem;
     padding: 0 25px;
     content: icon;
+
 }
 
 .input-login::placeholder {
@@ -164,6 +172,7 @@ img {
 .container-nav{
     display: flex;
     justify-content: space-between;
+    margin: 10px;
 }
 
 .img-container{

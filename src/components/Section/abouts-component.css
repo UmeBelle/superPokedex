@@ -78,7 +78,22 @@ display: flex;
 transform: translateX(70%);
 }
 
+@media (min-width:700px) {
+    .card {
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        font-size: small;   
+    }
 
+    section {
+        display: flex;
+        justify-content: center;
+    }
+}
 
 .Rock {
     background-color: #b69e31;
@@ -169,6 +184,10 @@ transform: translateX(70%);
 .Dragon {
     background-color: #7037ff;
     color: #7037ff;
+}
+.Type {
+    background-color:#484747 ;
+    color: white ;
 }
 
 .hp-pokemon {

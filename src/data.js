@@ -84,7 +84,7 @@ const POKE_ARRAY = [
         hp: "060",
         atk: "045",
         def: "050",
-        stak: "090",
+        satk: "090",
         sdef: "080",
         spd: "070"
       }
@@ -120,7 +120,7 @@ const POKE_ARRAY = [
         weight: "0,1 Kg",
         height: "1,3 m",
         moves: ["Levitate"],
-        details: "Born from gases, anyone would faint if engulfed by its gaseous body, which contains poison"
+        details: "Born from gases, anyone would faint if engulfed by its gaseous body, which contains poison."
       },
       stats: {
         hp: "030",

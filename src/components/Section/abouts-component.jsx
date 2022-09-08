@@ -17,7 +17,7 @@ const Porcentajes = ({pokemon}) => {
               <div className="skills">
                 <p
                   className={`skills-tech ${item.tipo[0]}`}
-                  style={{ background: "white" }}
+                  style={{ background: "whitesmoke" }}
                 >
                   HP
                 </p>
@@ -41,7 +41,7 @@ const Porcentajes = ({pokemon}) => {
               <div className="skills">
                 <p
                   className={`skills-tech ${item.tipo[0]}`}
-                  style={{ background: "white" }}
+                  style={{ background: "whitesmoke" }}
                 >
                   ATK
                 </p>
@@ -65,7 +65,7 @@ const Porcentajes = ({pokemon}) => {
               <div className="skills">
                 <p
                   className={`skills-tech ${item.tipo[0]}`}
-                  style={{ background: "white" }}
+                  style={{ background: "whitesmoke" }}
                 >
                   DEF
                 </p>
@@ -84,7 +84,7 @@ const Porcentajes = ({pokemon}) => {
               <div className="skills">
                 <p
                   className={`skills-tech ${item.tipo[0]}`}
-                  style={{ background: "white" }}
+                  style={{ background: "whitesmoke" }}
                 >
                   SATK
                 </p>
@@ -107,7 +107,7 @@ const Porcentajes = ({pokemon}) => {
               <div className="skills">
                 <p
                   className={`skills-tech ${item.tipo[0]}`}
-                  style={{ background: "white" }}
+                  style={{ background: "whitesmoke" }}
                 >
                   SDEF
                 </p>
@@ -127,7 +127,7 @@ const Porcentajes = ({pokemon}) => {
               <div className="skills">
                 <p
                   className={`skills-tech ${item.tipo[0]}`}
-                  style={{ background: "white" }}
+                  style={{ background: "whitesmoke" }}
                 >
                   SPD
                 </p>

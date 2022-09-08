@@ -54,21 +54,22 @@ const Pokedex = ({POKE_ARRAY}) => {
                 <div className="container-nav">
                     <div className="img-container">
                         <img src="./img/Pokeball.png" alt="pokeball" className="pokeball-nav"/>
-                        <h1>Pokédex</h1>
+                        <h1>Pokedex</h1>
                     </div>
                     <div className="container-Order">
                         {estadoButton ? <div className="aZOrder">
-                            <p onClick={ordenarPokemon}>A</p>
-                            <p onClick={ordenarPokemon}>Z</p>
+                            <p onClick={ordenarPokemon}><b>A</b></p>
+                            <p onClick={ordenarPokemon}><b>Z</b></p>
                         </div> : <p className="hash" onClick={ordenarPokemon}>#</p> }
                         
                             <i class="fa-solid fa-arrow-down" onClick={ordenarPokemon}></i>
                     </div>
                 </div>
+                <> <i class="fa-solid fa-magnifying-glass"></i></> 
                 <div className="Input-search">
                    
-                    {mostrarIcono ? <i class="fa-solid fa-magnifying-glass"></i> : <> </> }
-                    <input className="input-login" type="text" onChange={handleInputChange} placeholder="  Procurar" />
+                 
+                    <input className="input-login" type="text" onChange={handleInputChange} placeholder="Buscar🔍" />
                     
                 </div>
             </header>

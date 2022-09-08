@@ -79,7 +79,7 @@ const Card = () => {
                     </ul>
                 </div>
                 <div className="Peso-altura-movimientos">
-                    <h2 className={`About ${pokemon.tipo}`} style={{background  : "white"}}>About</h2>
+                    <h2 className={`About ${pokemon.tipo}`} style={{background  : "whitesmoke"}}>About</h2>
                     <div className="atributos-pokemon">
                         <div className="div-weight">
                             <div className="imagenYPeso">
@@ -106,7 +106,7 @@ const Card = () => {
                     <p>{pokemon.about.details}</p>
                 </div>
                 <div className="base-stats">
-                    <h2 className={`texto-base-stats ${pokemon.tipo}`} style={{background: "white"}} >Base Stats</h2>
+                    <h2 className={`texto-base-stats ${pokemon.tipo}`} style={{background: "whitesmoke"}} >Base Stats</h2>
                 </div>
                 <Porcentajes pokemon={pokemon}/>
             </div>

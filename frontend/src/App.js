@@ -1,5 +1,6 @@
+import LoginComponent from "./components/Section/LoginComponent/LoginComponent"  
 import Pokedex from "./components/main/Pokemon";
-import Card from "./components/Section/card-pokemon";
+import Card from "./components/Section/CardComponent/card-pokemon";
 import "./App.css";
 import POKE_ARRAY from "./data";
 import React from "react";
@@ -19,8 +20,9 @@ function App() {
 
     <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Pokedex POKE_ARRAY={POKE_ARRAY}/>}></Route>
+      <Route path="/pokedex" element={<Pokedex POKE_ARRAY={POKE_ARRAY}/>}></Route>
       <Route path=":nombre" element={<Card/>}></Route>
+      <Route path="/" element={<LoginComponent/>}></Route>
     </Routes>
   </BrowserRouter>
 

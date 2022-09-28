@@ -1,7 +1,7 @@
 import "./card-pokemon.css"
 import React from "react"
-import POKE_ARRAY from "../../data";
-import Porcentajes from "./abouts-component"
+import POKE_ARRAY from "../../../data";
+import Porcentajes from "../AboutsComponent/abouts-component"
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";

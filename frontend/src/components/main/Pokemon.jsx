@@ -1,8 +1,8 @@
 import { useState } from "react";
 import React from "react";
-import "./pokemon.css"
+import "./pokemon.css";
 import { Link, Outlet } from "react-router-dom";
-import Card from "../Section/card-pokemon";
+import Card from "../Section/CardComponent/card-pokemon";
 
 
 

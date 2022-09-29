@@ -2,7 +2,7 @@ import { useState } from "react";
 import React from "react";
 import "./pokemon.css";
 import { Link, Outlet } from "react-router-dom";
-import Card from "../Section/CardComponent/card-pokemon";
+import Card from "../../Section/CardComponent/card-pokemon";
 
 
 

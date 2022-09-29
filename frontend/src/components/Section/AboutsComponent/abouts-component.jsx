@@ -8,7 +8,7 @@ const Porcentajes = ({pokemon}) => {
   console.log(item)
 
   return (
-    <section>
+    <section> 
     
       
           <>

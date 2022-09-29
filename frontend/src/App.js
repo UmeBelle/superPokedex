@@ -15,12 +15,6 @@ import {
 
 
 function App() {
-async function prueba() {
-  await auth.login();
-}
-useEffect(()=>{
-  prueba()
-},[])
 
   return (
 

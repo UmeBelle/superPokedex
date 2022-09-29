@@ -75,8 +75,12 @@ img {
 }
 
 .Psychic {
-  background-color: #fb5584;
   color: #fb5584;
+  background: -webkit-radial-gradient(
+    center,
+    #fb5584,
+    #d86f8d
+  );
 }
 
 .Ice {
@@ -135,7 +139,11 @@ img {
 }
 
 .Dragon {
-  background-color: #7037ff;
+    background: -webkit-radial-gradient(
+    center,
+    #7037ff,
+    #7854d3
+  );
   color: #7037ff;
 }
 

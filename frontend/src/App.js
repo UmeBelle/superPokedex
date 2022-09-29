@@ -5,6 +5,8 @@ import "./App.css";
 import POKE_ARRAY from "./data";
 import React from "react";
 import ReactDOM from "react-dom/client";
+import auth from "./components/api/ApiAuth";
+import { useEffect } from "react";
 import {
   BrowserRouter,
   Routes,
@@ -13,8 +15,12 @@ import {
 
 
 function App() {
-
-
+async function prueba() {
+  await auth.login();
+}
+useEffect(()=>{
+  prueba()
+},[])
 
   return (
 

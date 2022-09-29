@@ -1,7 +1,8 @@
 const express= require("express");
 const app= express();
 const pokemonRoute = require("./src/routes/pokemon");
-
+const cors= require("cors");
+app.use(cors());
 const PORT= 4000;
 app.get("/", (req,res)=>{
     res.send("Hola")

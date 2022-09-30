@@ -4,10 +4,9 @@ const config = {
   user: "postgres",
   host: "localhost",
   password: "admin",
-  database: "pokemon",
+  database: "users",
   port: 5432,
 };
-
 const pool = new Pool(config);
 
 module.exports = {

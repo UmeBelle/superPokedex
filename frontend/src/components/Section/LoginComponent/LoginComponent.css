@@ -1,53 +1,59 @@
 .bodylogin {
-    display: flex;
-    flex-direction: column;
-    margin-top: 200px;
-    gap: 10px;
-    background: -webkit-radial-gradient(center  , rgba(77, 77, 77, 0),  rgb(161, 160, 160));
-    margin-left: 600px;
-    margin-right: 600px;
-    border-radius: 20px;
-    border-color: black;
-    
+  display: flex;
+  flex-direction: column;
+  margin-top: 200px;
+  gap: 10px;
+  background: -webkit-radial-gradient(
+    center,
+    rgba(77, 77, 77, 0),
+    rgb(161, 160, 160)
+  );
+  margin-left: 600px;
+  margin-right: 600px;
+  border-radius: 20px;
+  border-color: black;
 }
 
 html {
-    background: -webkit-radial-gradient(center  , rgba(137, 134, 134, 0),  rgb(206, 205, 205));
-   background-size: 100%;
+  background: -webkit-radial-gradient(
+    center,
+    rgba(137, 134, 134, 0),
+    rgb(206, 205, 205)
+  );
+  background-size: 100%;
 }
 .pokeball-nav {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .ingresar {
-    margin-bottom: 20px;
-    border-radius: 8px;
-    border-color: whitesmoke;
-    
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border-color: whitesmoke;
 }
 .input1 {
-    border-radius: 5px;
-    border-color: black;
-    margin-top: 5px;
-    margin-bottom: 5px
+  border-radius: 5px;
+  border-color: black;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 .input2 {
-    border-radius: 5px;
-    border-color: black;
-    margin-top: 5px;
-    margin-bottom: 5px
+  border-radius: 5px;
+  border-color: black;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 @media (prefers-reduced-motion: no-preference) {
-    .pokeball-nav {
-      animation: logo-spin infinite 20s linear;
-    }
+  .pokeball-nav {
+    animation: logo-spin infinite 20s linear;
   }
-  
-  @keyframes logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
   }
+  to {
+    transform: rotate(360deg);
+  }
+}

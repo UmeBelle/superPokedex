@@ -1,17 +1,10 @@
 import api from "./Api";
 
-const auth= {
-    login: ()=>{
-        const url= "/";
-        return api.get(url)
-            .then((res)=>{
-                console.log(res);
-            }) 
-            .catch((error)=>{
-                console.log(error);
-            })
-
+const auth = {
+    login: async (usuario) => {
+        const url = "/auth/login";
+        console.log(usuario)
+        return await api.post(url, usuario)
     }
 }
-
 export default auth;

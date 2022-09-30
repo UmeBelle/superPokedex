@@ -1,36 +1,30 @@
 import "./LoginComponent.css";
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import auth from "../../api/ApiAuth";
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigate = useNavigate();
+
   const setJwt = async () => {
     try {
-      const respuesta = await fetch("http://localhost:4000/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: username,
-          password: password,
-        }),
+      const usuario = {
+        username: username,
+        password: password,
+      };
+
+      await auth.login(usuario).then((res) => {
+        if (res.data.success) {
+          localStorage.setItem("token", res.data.token);
+          navigate("/pokedex");
+        }
       });
-
-      if (!respuesta.ok) {
-        const error = await respuesta.json();
-        throw new Error(error.message);
-      }
-
-      const auth = await respuesta.json();
-
-      alert("xD");
-
-      localStorage.setItem("token", auth.token);
     } catch (error) {
-      console.error(error);
+      alert(error.response.data.message);
     }
   };
 
@@ -48,14 +42,32 @@ function Login() {
 
       <form onSubmit={handleSubmit}>
         <p>Username</p>
-        <input className="input1" type="text" required />
+        <input
+          onChange={(e) => {
+            setUsername(e.target.value);
+          }}
+          className="input1"
+          type="text"
+          required
+        />
 
         <p>Password</p>
-        <input className="input2" type="password" name="" id="" required />
+        <input
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
+          className="input2"
+          type="password"
+          name=""
+          id=""
+          required
+        />
       </form>
 
       <div>
-        <button className="ingresar">Ingresar</button>
+        <button onClick={handleSubmit} className="ingresar">
+          Ingresar
+        </button>
       </div>
     </div>
   );

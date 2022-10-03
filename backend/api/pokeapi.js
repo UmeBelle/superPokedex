@@ -11,7 +11,7 @@ const fetchData = async () => {
       return res.data;
     });
 
-    console.log(data);
+    //console.log(data);
 
     data.results.map(async (poke) => {
       try {

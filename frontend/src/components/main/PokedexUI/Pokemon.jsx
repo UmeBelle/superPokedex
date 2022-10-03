@@ -5,41 +5,46 @@ import { Link, Outlet } from "react-router-dom";
 import Card from "../../Section/CardComponent/card-pokemon";
 
 const Pokedex = ({ POKE_ARRAY }) => {
-  const [filterList, setFilterList] = useState(POKE_ARRAY);
+  const pokeArray = POKE_ARRAY ;  
+  const [pokemonList, setPokemonList] = useState(pokeArray);
   const [estadoButton, setEstadoButton] = useState(0);
   const [mostrarIcono, setMostrarIcono] = useState(false);
 
+  
+
   const handleInputChange = (e) => {
     if (e.target.value === "") {
-      setFilterList(POKE_ARRAY);
+      setPokemonList(pokeArray);
       setMostrarIcono(false);
       return;
     }
-    const filteredList = POKE_ARRAY.filter(
+    const filteredList = pokeArray.filter(
       (item) =>
-        item.nombre.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1
+        item.name.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1
     );
 
-    setFilterList(filteredList);
+    setPokemonList(filteredList);
     setMostrarIcono(true);
   };
 
   const ordenarPokemon = () => {
+    let arrayOrdenado= [];
+
     if (estadoButton === 0) {
-      let arrayOrdenado = [...POKE_ARRAY].sort((a, b) =>
-        a.nombre !== b.nombre ? (a.nombre < b.nombre ? -1 : 1) : 0
+      arrayOrdenado = [...pokeArray].sort((a, b) =>
+        a.name !== b.name ? (a.name < b.name ? -1 : 1) : 0
       );
-      setFilterList(arrayOrdenado);
+            setPokemonList(arrayOrdenado);
       setEstadoButton(1);
-      console.log(arrayOrdenado);
     } else if (estadoButton === 1) {
-      let arrayOrdenado = [...POKE_ARRAY].sort((a, b) =>
-        a.nombre === b.id ? (a.nombre > b.id ? -1 : 1) : 0
+      arrayOrdenado = [...POKE_ARRAY].sort((a, b) =>
+        a.name === b.id ? (a.name > b.id ? -1 : 1) : 0
       );
-      setFilterList(arrayOrdenado);
+      setPokemonList(arrayOrdenado);
       setEstadoButton(0);
-      console.log(arrayOrdenado);
+     
     }
+    console.log(arrayOrdenado);
   };
   return (
     <>
@@ -85,19 +90,19 @@ const Pokedex = ({ POKE_ARRAY }) => {
         </header>
 
         <div className="container-pokemon">
-          {filterList.map((item, i) => {
+          {pokemonList.map((item) => {
             return (
               <>
                 <Link
-                  key={item.nombre}
-                  className={`card-pokemon ${item.tipo[0]}`}
-                  to={`/${item.nombre}`}
+                  key={item.name}
+                  className={`card-pokemon ${item.type1}`}
+                  to={`/${item.name}`}
                 >
                   <div className="foto-card-pokemon">
                     <p className="id-pokemon">{item.id}</p>
                     <img className="pokemonimg" src={item.img} alt="" />
                   </div>
-                  <p className="nombre-pokemon">{item.nombre}</p>
+                  <p className="nombre-pokemon">{item.name}</p>
                 </Link>
               </>
             );

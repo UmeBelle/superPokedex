@@ -24,6 +24,7 @@ function Register() {
 
       await auth.registro(usuario).then((res) => {
         if (res.data.success) {
+          localStorage.removeItem("token");
           localStorage.setItem("token", res.data.token);
           navigate("/login");
           alert(res.data.message);

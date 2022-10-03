@@ -4,7 +4,7 @@ const config = {
   user: "postgres",
   host: "localhost",
   password: "admin",
-  database: "users",
+  database: "pokedex",
   port: 5432,
 };
 const pool = new Pool(config);

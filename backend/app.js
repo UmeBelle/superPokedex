@@ -15,7 +15,7 @@ app.post ('/registro', (req,res) =>{
 
 } )
 app.use("/auth", auth);
-app.use("/pokemones", pokemonRoute);
+app.use("/pokemon", pokemonRoute);
 
 
 app.use(express.json());

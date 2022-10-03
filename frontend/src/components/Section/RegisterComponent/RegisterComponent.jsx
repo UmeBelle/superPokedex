@@ -1,12 +1,17 @@
-import "./LoginComponent.css";
+import "./RegisterComponent.css";
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import auth from "../../api/ApiAuth";
 
-function Login() {
+function Register() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    setJwt();
+  };
 
   const navigate = useNavigate();
 
@@ -17,10 +22,10 @@ function Login() {
         password: password,
       };
 
-      await auth.login(usuario).then((res) => {
+      await auth.registro(usuario).then((res) => {
         if (res.data.success) {
           localStorage.setItem("token", res.data.token);
-          navigate("/pokedex");
+          navigate("/login");
           alert(res.data.message);
         }
       });
@@ -29,13 +34,8 @@ function Login() {
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setJwt();
-  };
-
   return (
-    <body id="login">
+    <body id="register">
       <div className="bodylogin">
         <div>
           <img
@@ -45,35 +45,34 @@ function Login() {
           />
           <h1 className="tituloLogin">Pokedex</h1>
         </div>
-        <h3>Login</h3>
-
-        <form onSubmit={handleSubmit}>
+        <h4>Registro</h4>
+        <form>
           <p>Username</p>
           <input
-            onChange={(e) => {
-              setUsername(e.target.value);
-            }}
             className="input1"
             type="text"
             required
+            onChange={(e) => {
+              setUsername(e.target.value);
+            }}
           />
 
           <p>Password</p>
           <input
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
             className="input2"
             type="password"
             name=""
             id=""
             required
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
           />
         </form>
 
         <div className="buttons">
-          <button onClick={handleSubmit} className="ingresar">
-            Ingresar
+          <button onClick={handleRegister} className="ingresar">
+            Registrarse
           </button>
         </div>
       </div>
@@ -81,4 +80,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;

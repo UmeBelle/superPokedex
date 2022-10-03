@@ -11,9 +11,12 @@ const PORT = 4000;
 app.get("/", (req, res) => {
     res.send("Hola")
 })
+app.post ('/registro', (req,res) =>{
 
+} )
 app.use("/auth", auth);
 app.use("/pokemones", pokemonRoute);
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

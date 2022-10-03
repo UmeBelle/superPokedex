@@ -4,27 +4,44 @@ import "./pokemon.css";
 import { Link, Outlet } from "react-router-dom";
 import Card from "../../Section/CardComponent/card-pokemon";
 import { useEffect } from "react";
+import pokemons from "../../api/ApiPokemones";
 
-const Pokedex = ({ POKE_ARRAY }) => {
+
+const Pokedex = () => {
   const [filterList, setFilterList] = useState([]);
   const [estadoButton, setEstadoButton] = useState(0);
   const [mostrarIcono, setMostrarIcono] = useState(false);
 
+  const [showPokemons, setShowPokemons] = useState([]);
+
+  async function getPokemons() {
+
+    const data = await pokemons.getPokemones();
+    console.log(data)
+    setShowPokemons(data);
+  }
+  
+
   useEffect(() => {
-    if (POKE_ARRAY) {
-      setFilterList(POKE_ARRAY)
+    getPokemons();
+  },[]);
+
+
+  useEffect(() => {
+    if (showPokemons) {
+      setFilterList(showPokemons)
     }
-  }, [POKE_ARRAY]) 
+  }, [showPokemons]) 
 
   
 
   const handleInputChange = (e) => {
     if (e.target.value === "") {
-      setFilterList(POKE_ARRAY);
+      setFilterList(showPokemons);
       setMostrarIcono(false);
       return;
     }
-    const filteredList = POKE_ARRAY.filter(
+    const filteredList = showPokemons.filter(
       (item) =>
         item.name.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1
     );
@@ -37,13 +54,13 @@ const Pokedex = ({ POKE_ARRAY }) => {
     let arrayOrdenado= [];
 
     if (estadoButton === 0) {
-      arrayOrdenado = [...POKE_ARRAY].sort((a, b) =>
+      arrayOrdenado = [...showPokemons].sort((a, b) =>
         a.name !== b.name ? (a.name < b.name ? -1 : 1) : 0
       );
             setFilterList(arrayOrdenado);
       setEstadoButton(1);
     } else if (estadoButton === 1) {
-      arrayOrdenado = [...POKE_ARRAY].sort((a, b) =>
+      arrayOrdenado = [...showPokemons].sort((a, b) =>
         a.name === b.id ? (a.name > b.id ? -1 : 1) : 0
       );
       setFilterList(arrayOrdenado);

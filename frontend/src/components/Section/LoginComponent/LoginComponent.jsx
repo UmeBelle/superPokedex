@@ -3,6 +3,8 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import auth from "../../api/ApiAuth";
+import pokemons from "../../api/ApiPokemones";
+
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -19,6 +21,7 @@ function Login() {
 
       await auth.login(usuario).then((res) => {
         if (res.data.success) {
+          localStorage.removeItem("token");
           localStorage.setItem("token", res.data.token);
           navigate("/pokedex");
           alert(res.data.message);

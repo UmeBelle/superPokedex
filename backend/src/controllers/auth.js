@@ -11,26 +11,29 @@ const registro = async (req, res) => {
     if (user.rowCount > 0) {
       return res.status(400).json({
         data: [],
-        message: "Ya existe un usuario con ese correo",
+        message: "Ya existe un registro con ese username, prueba con otro!",
         success: false,
       });
     }
 
     const salt = await bcrypt.genSalt(10);
-    const passwordHashed = await bcrypt.hash(password, salt);
+    const passwordEncriptada = await bcrypt.hash(password, salt);
     const newUser = {
       username,
-      password: passwordHashed,
+      password: passwordEncriptada,
     };
+    console.log(newUser)
 
     await db.query(
-      "insert into users(username, password) values($1, $2, $3)",
-      [username, passwordHashed]
+      "insert into users(username, password) values($1, $2)",
+      [username, passwordEncriptada]
     );
     return res
       .status(200)
-      .json({ data: [newUser], message: "Usuario creado", success: true });
-  } catch (error) { }
+      .json({ data: [newUser], message: "Usuario creado correctamente", success: true });
+  }
+
+  catch (error) { }
 };
 const login = async (req, res) => {
   try {
@@ -39,22 +42,21 @@ const login = async (req, res) => {
     if (user.rowCount === 0) {
       return res.status(400).json({
         data: [],
-        message: "Este usuario no esta registrado.",
+        message: "El usuario no esta registrado, registrate para continuar",
         success: false,
       });
     }
 
-    // const passwordValidada = await bcrypt.compare(
-    //   password,
-    //   user.rows[0].password
-    // );
-    const passwordValidada = password ===
-      user.rows[0].password;
+    const passwordValidada = await bcrypt.compare(
+      password,
+      user.rows[0].password
+    );
     if (!passwordValidada) {
       return res
         .status(400)
         .json({ success: false, message: "Contraseña invalida" });
     }
+
     const token = jwt.sign(
       { username: username },
       TOKEN_SECRET

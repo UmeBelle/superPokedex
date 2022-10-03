@@ -43,69 +43,68 @@ const Pokedex = ({ POKE_ARRAY }) => {
   };
   return (
     <>
-      <header>
-        <div className="container-nav">
-          <div className="img-container">
-            <img
-              src="./img/Pokeball.png"
-              alt="pokeball"
-              className="pokeball-nav"
-            />
-            <h1>Pokedex</h1>
-          </div>
-          <div className="container-Order">
-            {estadoButton ? (
-              <div className="aZOrder">
-                <p onClick={ordenarPokemon}>
-                  <b>A</b>
-                </p>
-                <p onClick={ordenarPokemon}>
-                  <b>Z</b>
-                </p>
-              </div>
-            ) : (
-              <p className="hash" onClick={ordenarPokemon}>
-                #
-              </p>
-            )}
-
-            <i class="fa-solid fa-arrow-down" onClick={ordenarPokemon}></i>
-          </div>
-        </div>
-        <>
-          {" "}
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </>
-        <div className="Input-search">
-          <input
-            className="input-login"
-            type="text"
-            onChange={handleInputChange}
-            placeholder="Buscar🔍"
-          />
-        </div>
-      </header>
-
-      <div className="container-pokemon">
-        {filterList.map((item, i) => {
-          return (
-            <>
-              <Link
-                key={item.nombre}
-                className={`card-pokemon ${item.tipo[0]}`}
-                to={`/${item.nombre}`}
-              >
-                <div className="foto-card-pokemon">
-                  <p className="id-pokemon">{item.id}</p>
-                  <img src={item.img} alt="" />
+      <body id="bodyUI">
+        <header>
+          <div className="container-nav">
+            <div className="img-container">
+              <img
+                src="./img/Pokeball.png"
+                alt="pokeball"
+                className="pokeball-nav"
+              />
+              <h1 className="">Pokedex</h1>
+            </div>
+            <div className="container-Order">
+              {estadoButton ? (
+                <div className="aZOrder">
+                  <p onClick={ordenarPokemon}>
+                    <b>A</b>
+                  </p>
+                  <p onClick={ordenarPokemon}>
+                    <b>Z</b>
+                  </p>
                 </div>
-                <p className="nombre-pokemon">{item.nombre}</p>
-              </Link>
-            </>
-          );
-        })}
-      </div>
-      <Outlet />
+              ) : (
+                <p className="hash" onClick={ordenarPokemon}>
+                  #
+                </p>
+              )}
+
+              <i class="fa-solid fa-arrow-down" onClick={ordenarPokemon}></i>
+            </div>
+          </div>
+          <> </>
+          <div className="Input-search">
+            <input
+              className="input-login"
+              type="text"
+              onChange={handleInputChange}
+              placeholder="Buscar"
+            />
+          </div>
+        </header>
+
+        <div className="container-pokemon">
+          {filterList.map((item, i) => {
+            return (
+              <>
+                <Link
+                  key={item.nombre}
+                  className={`card-pokemon ${item.tipo[0]}`}
+                  to={`/${item.nombre}`}
+                >
+                  <div className="foto-card-pokemon">
+                    <p className="id-pokemon">{item.id}</p>
+                    <img className="pokemonimg" src={item.img} alt="" />
+                  </div>
+                  <p className="nombre-pokemon">{item.nombre}</p>
+                </Link>
+              </>
+            );
+          })}
+        </div>
+        <Outlet />
+      </body>
     </>
   );
 };

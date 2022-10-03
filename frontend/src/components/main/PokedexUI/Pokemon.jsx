@@ -3,27 +3,33 @@ import React from "react";
 import "./pokemon.css";
 import { Link, Outlet } from "react-router-dom";
 import Card from "../../Section/CardComponent/card-pokemon";
+import { useEffect } from "react";
 
 const Pokedex = ({ POKE_ARRAY }) => {
-  const pokeArray = POKE_ARRAY ;  
-  const [pokemonList, setPokemonList] = useState(pokeArray);
+  const [filterList, setFilterList] = useState([]);
   const [estadoButton, setEstadoButton] = useState(0);
   const [mostrarIcono, setMostrarIcono] = useState(false);
+
+  useEffect(() => {
+    if (POKE_ARRAY) {
+      setFilterList(POKE_ARRAY)
+    }
+  }, [POKE_ARRAY]) 
 
   
 
   const handleInputChange = (e) => {
     if (e.target.value === "") {
-      setPokemonList(pokeArray);
+      setFilterList(POKE_ARRAY);
       setMostrarIcono(false);
       return;
     }
-    const filteredList = pokeArray.filter(
+    const filteredList = POKE_ARRAY.filter(
       (item) =>
         item.name.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1
     );
 
-    setPokemonList(filteredList);
+    setFilterList(filteredList);
     setMostrarIcono(true);
   };
 
@@ -31,16 +37,16 @@ const Pokedex = ({ POKE_ARRAY }) => {
     let arrayOrdenado= [];
 
     if (estadoButton === 0) {
-      arrayOrdenado = [...pokeArray].sort((a, b) =>
+      arrayOrdenado = [...POKE_ARRAY].sort((a, b) =>
         a.name !== b.name ? (a.name < b.name ? -1 : 1) : 0
       );
-            setPokemonList(arrayOrdenado);
+            setFilterList(arrayOrdenado);
       setEstadoButton(1);
     } else if (estadoButton === 1) {
       arrayOrdenado = [...POKE_ARRAY].sort((a, b) =>
         a.name === b.id ? (a.name > b.id ? -1 : 1) : 0
       );
-      setPokemonList(arrayOrdenado);
+      setFilterList(arrayOrdenado);
       setEstadoButton(0);
      
     }
@@ -90,7 +96,7 @@ const Pokedex = ({ POKE_ARRAY }) => {
         </header>
 
         <div className="container-pokemon">
-          {pokemonList.map((item) => {
+          {filterList.map((item) => {
             return (
               <>
                 <Link

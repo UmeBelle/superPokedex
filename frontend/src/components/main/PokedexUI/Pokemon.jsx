@@ -11,7 +11,7 @@ const Pokedex = () => {
   const [filterList, setFilterList] = useState([]);
   const [estadoButton, setEstadoButton] = useState(0);
   const [mostrarIcono, setMostrarIcono] = useState(false);
-
+  const [pokemonColor, setPokemonColor] = useState("white");
   const [showPokemons, setShowPokemons] = useState([]);
 
   async function getPokemons() {
@@ -120,6 +120,7 @@ const Pokedex = () => {
                   key={item.name}
                   className={`card-pokemon ${item.type1}`}
                   to={`/${item.name}`}
+                  id={item.type1}
                 >
                   <div className="foto-card-pokemon">
                     <p className="id-pokemon">{item.id}</p>

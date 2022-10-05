@@ -6,7 +6,9 @@ const { TOKEN_SECRET } = require("../middleware/jw-validate");
 const registro = async (req, res) => {
   try {
     const { username, password } = req.body;
-    const user = await db.query("select * from users where username = $1", [username]);
+    const user = await db.query("select * from users where username = $1", [
+      username,
+    ]);
 
     if (user.rowCount > 0) {
       return res.status(400).json({
@@ -22,23 +24,29 @@ const registro = async (req, res) => {
       username,
       password: passwordEncriptada,
     };
-    console.log(newUser)
+    console.log(newUser);
 
-    await db.query(
-      "insert into users(username, password) values($1, $2)",
-      [username, passwordEncriptada]
-    );
+    await db.query("insert into users(username, password) values($1, $2)", [
+      username,
+      passwordEncriptada,
+    ]);
     return res
       .status(200)
-      .json({ data: [newUser], message: "Usuario creado correctamente", success: true });
+      .json({
+        data: [newUser],
+        message: "Usuario creado correctamente",
+        success: true,
+      });
+  } catch (error) {
+    return res.send(error).status(500);
   }
-
-  catch (error) { }
 };
 const login = async (req, res) => {
   try {
     const { username, password } = req.body;
-    const user = await db.query("select * from users where username = $1", [username]);
+    const user = await db.query("select * from users where username = $1", [
+      username,
+    ]);
     if (user.rowCount === 0) {
       return res.status(400).json({
         data: [],
@@ -57,17 +65,12 @@ const login = async (req, res) => {
         .json({ success: false, message: "Contraseña invalida" });
     }
 
-    const token = jwt.sign(
-      { username: username },
-      TOKEN_SECRET
-    );
-    return res
-      .status(200)
-      .json({
-        success: true,
-        message: "Se inicio sesion correctamente.",
-        token
-      });
+    const token = jwt.sign({ username: username }, TOKEN_SECRET);
+    return res.status(200).json({
+      success: true,
+      message: "Se inicio sesion correctamente.",
+      token,
+    });
   } catch (error) {
     console.log(error);
   }

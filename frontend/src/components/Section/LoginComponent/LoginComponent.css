@@ -11,11 +11,11 @@ h3 {
 .bodylogin {
   display: flex;
   flex-direction: column;
-  margin-top: 200px;
-  gap: 10px;
+  margin-top: 15%;
+  gap: 5% ;
   background-color: whitesmoke;
-  margin-left: 70vh;
-  margin-right: 70vh;
+  margin-left: 35%;
+  margin-right: 35%;
   border-radius: 20px;
   border-color: black;
 }
@@ -34,43 +34,38 @@ html {
 }
 
 .ingresar {
-  margin-bottom: 20px;
+  margin-bottom: 3%;
   border-radius: 8px;
   border: solid 1px whitesmoke;
   background-color: #727171;
   color: whitesmoke;
-  width: 10vh;
-  height: 3vh;
+  width: 20%;
   cursor: pointer;
   outline: none;
   transition: 0.1s all;
 }
 .ingresar:hover {
   background-color: #2121218f;
-  width: 11vh;
+ width: 23%;
 }
-.buttons {
-  gap: 30px;
-  display: flex;
-  justify-content: center;
-}
+
 .input1 {
   border-radius: 5px;
   border: 1px solid #212121;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  width: 30vh;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  width: 55%;
 }
 .input2 {
   border-radius: 5px;
   border: solid 1px #212121;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  width: 30vh;
+  margin-top: 2%;
+  margin-bottom: 4%;
+  width: 55%;
 }
 .ingresar:active {
   transform: scale(0.78);
-  box-shadow: 2px 2px 22px 2px #6b6b6b;
+  box-shadow: 1% 1% 22px 2px #6b6b6b;
 }
 @media (prefers-reduced-motion: no-preference) {
   .pokeball-login {
@@ -112,22 +107,21 @@ html {
   .bodylogin {
     display: flex;
     flex-direction: column;
-    margin-top: 30vh;
+    margin-top: 20%;
     gap: 0.2rem;
     background-color: whitesmoke;
     margin-left: 40%;
-
     border-radius: 20px;
     border-color: black;
-    width: 40vh;
-    height: 25vh;
+    width: 30%;
+    height: 10%;
   }
 
   html {
     background-color: #212121;
   }
   .pokeball-login {
-    margin-top: 20px;
+    margin-top: 4%;
     width: 8%;
   }
 
@@ -138,13 +132,13 @@ html {
   }
 
   .ingresar {
-    margin-bottom: 20px;
+    margin-bottom: 4%;
     border-radius: 8px;
     border: solid 1px whitesmoke;
     background-color: #515151;
     color: whitesmoke;
-    width: 10vh;
-    height: 3vh;
+    width:20%;
+    height: 3rem;
     cursor: pointer;
     outline: none;
     transition: 0.1s all;
@@ -156,102 +150,27 @@ html {
   }
 
   .input1 {
-    border-radius: 5px;
+    border-radius: 10px;
     border: 1px solid #212121;
     margin-top: 5px;
     margin-bottom: 5px;
-    width: 30vh;
-    height: 1.5rem;
+    width: 55%;
+    height: 1.7rem;
   }
   .input2 {
-    border-radius: 5px;
+    border-radius: 10px;
     border: solid 1px #212121;
     margin-top: 5px;
     margin-bottom: 1rem;
-    width: 30vh;
-    height: 1.5rem;
+    width: 55%;
+    height: 1.7rem;
   }
   .ingresar:active {
     transform: scale(0.78);
     box-shadow: 2px 2px 22px 2px #6b6b6b;
   }
 }
-@media (min-width: 769px) and (max-width: 1024px) {
-  #login {
-    background-color: #212121;
-    text-align: center;
-  }
 
-  h3 {
-    color: #212121;
-    text-decoration: wavy;
-  }
-
-  .bodylogin {
-    display: flex;
-    flex-direction: column;
-    margin-top: 200px;
-    gap: 10px;
-    background-color: whitesmoke;
-    margin-left: 40vh;
-    margin-right: 40vh;
-    border-radius: 20px;
-    border-color: black;
-  }
-
-  html {
-    background-color: #212121;
-  }
-  .pokeball-login {
-    margin-top: 20px;
-    width: 8%;
-  }
-
-  .tituloLogin {
-    color: #212121;
-    animation: fadein 2s;
-  }
-
-  .ingresar {
-    margin-bottom: 20px;
-    border-radius: 8px;
-    border: solid 1px whitesmoke;
-    background-color: #3d3d3d;
-    color: whitesmoke;
-    width: 10vh;
-    height: 3vh;
-    cursor: pointer;
-    outline: none;
-    transition: 0.1s all;
-  }
-  .ingresar:hover {
-    background-color: #2121218f;
-    width: 11vh;
-  }
-  .buttons {
-    gap: 30px;
-    display: flex;
-    justify-content: center;
-  }
-  .input1 {
-    border-radius: 5px;
-    border: 1px solid #212121;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    width: 30vh;
-  }
-  .input2 {
-    border-radius: 5px;
-    border: solid 1px #212121;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    width: 30vh;
-  }
-  .ingresar:active {
-    transform: scale(0.78);
-    box-shadow: 2px 2px 22px 2px #6b6b6b;
-  }
-}
 
 @media (min-width: 320px) and (max-width: 480px) {
   #login {
@@ -270,8 +189,8 @@ html {
     margin-top: 200px;
     gap: 10px;
     background-color: whitesmoke;
-    margin-left: 2vh;
-    margin-right: 2vh;
+    margin-left: 5%;
+    margin-right: 5%;
     border-radius: 20px;
     border-color: black;
   }

@@ -71,7 +71,7 @@ const Pokedex = () => {
   };
   return (
     <>
-      <body id="bodyUI">
+      <div id="bodyUI">
         <header>
           <div className="container-nav">
             <div className="img-container">
@@ -133,7 +133,7 @@ const Pokedex = () => {
           })}
         </div>
         <Outlet />
-      </body>
+      </div>
     </>
   );
 };

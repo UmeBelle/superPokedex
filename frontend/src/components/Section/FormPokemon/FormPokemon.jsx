@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import "./FormPokemon.css"
+import api from "../../api/Api";
 
 const PopupFormPokemon = (props) => {
     const [name, setName] = useState("");
@@ -74,32 +75,68 @@ const PopupFormPokemon = (props) => {
                 return;
         }
     }
+
+    const sendNewPokemon = () => {
+        const url = "/pokemon/pokedex";
+        return api.post(url)
+            .then((res) => {
+                console.log('respuesta ' + res)
+                
+            })
+            .catch((error) => {
+                alert(error)
+            })
+    }
     
     return(
         <div className="pokeFormPopup">
+            <button className="btnClosePopup" onClick={props.closePopup}><h2> X </h2></button>
+            
             <div className="formPopup">
-                <button className="btnClosePopup" onClick={props.closePopup}>X</button>
-                <input name="name" className="name" onChange={handleChange} >Name: </input> <br></br>
-                <input name="id" type="number" className="id" onChange={handleChange} >ID: </input> <br></br>
-                <input name="image" className="image" onChange={handleChange} >Image URL: </input> <br></br>
-                <button name="typePoison" className="typePoison" onClick={handleChange}></button> <button name="typeGrass" className="typeGrass" onClick={handleChange}></button> <button name="typeFire" className="typeFire" onClick={handleChange}></button> <br></br>
-                <button name="typeWater" className="typeWater" onClick={handleChange}></button> <button name="typeBug" className="typeBug" onClick={handleChange}></button> <button name="typeFlying" className="typeFlying" onClick={handleChange}></button> <br></br>
-                <button name="typeGhost" className="typeGhost" onClick={handleChange}></button> <button name="typeNormal" className="typeNormal" onClick={handleChange}></button> <button name="typePhysichic" className="typePhsychic" onClick={handleChange}></button> <br></br>
-                <button name="typeSteel" className="typeSteel" onClick={handleChange}></button> <button name="typeRock" className="typeRock" onClick={handleChange}></button> <button name="typeNone" className="typeNone" onClick={handleChange}></button> <br></br>
-                <input type="number" name="weight" className="weight" onChange={handleChange} >Weight: </input> <br></br>
-                <input type="number" name="weight" className="height" onChange={handleChange} >Height: </input> <br></br>
-                <input className="ability1" name="ability1" onChange={handleChange} >Ability: </input> <br></br>
-                <input className="ability2" name="ability2" onChange={handleChange} >Secondary ability: </input> <br></br>
-                <input className="flavorText" name="flavorText" onChange={handleChange} >Info: </input> <br></br>
-                <button className="randomStats" name="statsRandom" onClick={handleChange}>Random</button> <button className="chooseStats" name="statsFixed" onClick={handleChange}>Choose</button>
-                <div className="stats">
-                    <input type="number" className="hp" name="hp" onChange={handleChange} disabled={statsState}>HP: </input> 
-                    <input type="number" className="atk" name="atk" onChange={handleChange} disabled={statsState}>ATK: </input> 
-                    <input type="number" className="def" name="def" onChange={handleChange} disabled={statsState}>DEF: </input> <br></br>
-                    <input type="number" className="satk" name="satk" onChange={handleChange} disabled={statsState}>sATK: </input> 
-                    <input type="number" className="sdef" name="sdef" onChange={handleChange} disabled={statsState}>sDEF: </input> 
-                    <input type="number" className="spe" name="spe" onChange={handleChange} disabled={statsState}>SPE: </input> <br></br>
+                <div className="center-on-page">
+                    <div className="pokeball">
+                        <div className="pokeball__button"></div>
+                    </div>
                 </div>
+                <form className="formPopupContent" onSubmit={sendNewPokemon}>
+                    Name: <input name="name" className="name" onChange={handleChange} /> <br></br>
+                    ID: <input name="id" type="number" className="id" onChange={handleChange} /> <br></br>
+                    Image URL:<input name="image" className="image" onChange={handleChange} /> <br></br>
+                    <div className="buttons">
+                        <div>
+                            <button name="typePoison" className="poison" onClick={handleChange}>Poison</button> <button name="typeGrass" className="grass" onClick={handleChange}>Grass</button> <button name="typeFire" className="fire" onClick={handleChange}>Fire</button>
+                        </div> <br></br>
+                        <div>
+                            <button name="typeWater" className="water" onClick={handleChange}>Water</button> <button name="typeBug" className="bug" onClick={handleChange}>Bug</button> <button name="typeFlying" className="flying" onClick={handleChange}>Flying</button>
+                        </div> <br></br>
+                        <div>
+                            <button name="typeGhost" className="ghost" onClick={handleChange}>Ghost</button> <button name="typeNormal" className="normal" onClick={handleChange}>Normal</button> <button name="typePhsychic" className="psychic" onClick={handleChange}>Phsychic</button>
+                        </div> <br></br>
+                        <div>
+                            <button name="typeSteel" className="steel" onClick={handleChange}>Steel</button> 
+                            <button name="typeRock" className="rock" onClick={handleChange}>Rock</button> 
+                            <button name="typeNone" className="none" onClick={handleChange}>None</button>
+                        </div>
+                    </div>
+                    
+                    Weight: <input type="number" name="weight" className="weight" onChange={handleChange} /> <br></br>
+                    Height: <input type="number" name="height" className="height" onChange={handleChange} /> <br></br>
+                    Ability 1: <input className="ability1" name="ability1" onChange={handleChange} /> <br></br>
+                    Ability 2:<input className="ability2" name="ability2" onChange={handleChange} /> <br></br>
+                    About: <input className="flavorText" name="flavorText" onChange={handleChange} /> <br></br>
+                    <h2>Stats:</h2>
+                    <button className="randomStats" name="statsRandom" onClick={handleChange}>Random</button> 
+                    <button className="chooseStats" name="statsFixed" onClick={handleChange}>Choose</button>
+                    <div className="stats">
+                        <input type="number" className="hp" name="hp" onChange={handleChange} disabled={statsState}/> 
+                        <input type="number" className="atk" name="atk" onChange={handleChange} disabled={statsState}/> 
+                        <input type="number" className="def" name="def" onChange={handleChange} disabled={statsState}/> <br></br>
+                        <input type="number" className="satk" name="satk" onChange={handleChange} disabled={statsState}/> 
+                        <input type="number" className="sdef" name="sdef" onChange={handleChange} disabled={statsState}/>
+                        <input type="number" className="spe" name="spe" onChange={handleChange} disabled={statsState}/> <br></br>
+                    </div>
+                    <submit>Add</submit>
+                </form>
             </div>
         </div>
     )

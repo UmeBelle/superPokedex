@@ -80,10 +80,10 @@ const Pokedex = () => {
   return (
     <>
     <div>
-      {isOpen && <PopupFormPokemon 
+      {isOpen ? <PopupFormPokemon 
         closePopup={() => {
           setIsOpen(false);
-        }}/>}
+        }}/> : null}
     </div>
       <body id="bodyUI">
         <header>

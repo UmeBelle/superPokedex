@@ -78,7 +78,10 @@ function Login() {
           <button onClick={handleSubmit} className="ingresar">
             Ingresar
           </button>
+
+          
         </div>
+        <a className="linkregister" href="/register">Sign up</a>
       </div>
     </body>
   );

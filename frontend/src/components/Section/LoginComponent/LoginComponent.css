@@ -32,9 +32,19 @@ html {
   color: #212121;
   animation: fadein 2s;
 }
+.linkregister {
+  margin-bottom: 4%;
+  text-decoration: none;
+}
+.linkregister:active {
+  color: #212121;
+}
+.linkregister:hover {
+  font-size: 1.05rem;
+}
 
 .ingresar {
-  margin-bottom: 3%;
+  margin-bottom: 2%;
   border-radius: 8px;
   border: solid 1px whitesmoke;
   background-color: #727171;
@@ -132,7 +142,7 @@ html {
   }
 
   .ingresar {
-    margin-bottom: 4%;
+    margin-bottom: 2%;
     border-radius: 8px;
     border: solid 1px whitesmoke;
     background-color: #515151;
@@ -209,7 +219,7 @@ html {
   }
 
   .ingresar {
-    margin-bottom: 20px;
+    margin-bottom: 1%;
     border-radius: 8px;
     border: solid 1px whitesmoke;
     background-color: #515151;

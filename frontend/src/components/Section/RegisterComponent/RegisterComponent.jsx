@@ -76,6 +76,8 @@ function Register() {
             Registrarse
           </button>
         </div>
+        <p>Already have an account?</p>
+        <a className="linklogin" href="/login"> Login</a>
       </div>
     </body>
   );

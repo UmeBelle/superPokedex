@@ -5,6 +5,7 @@ import { Link, Outlet } from "react-router-dom";
 import Card from "../../Section/CardComponent/card-pokemon";
 import { useEffect } from "react";
 import pokemons from "../../api/ApiPokemones";
+import PopupFormPokemon from "../../Section/FormPokemon/FormPokemon";
 
 
 const Pokedex = () => {
@@ -69,8 +70,19 @@ const Pokedex = () => {
     }
     console.log(arrayOrdenado);
   };
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openPopup = () => {
+    setIsOpen(true);
+  }
+
   return (
     <>
+      {isOpen && <PopupFormPokemon 
+        closePopup={() => {
+          setIsOpen(false);
+        }}/>}
       <body id="bodyUI">
         <header>
           <div className="container-nav">
@@ -111,8 +123,16 @@ const Pokedex = () => {
             />
           </div>
         </header>
-
+        
         <div className="container-pokemon">
+            <div style={{cursor: `url('./img/cursor-add.png'), pointer`}} onClick={openPopup}>
+              <div className="foto-card-pokemon">
+                <p className="id-pokemon">???</p>
+                <img className="pokemonimg" src="./img/Pokeball.png" alt="Add pokemon" />
+                <p className="nombre-pokemon" style={{color: "black"}}>New Pokemon</p>
+              </div>
+            </div>
+
           {filterList.map((item) => {
             return (
               <>
@@ -135,6 +155,6 @@ const Pokedex = () => {
       </body>
     </>
   );
-};
+}; 
 
 export default Pokedex;

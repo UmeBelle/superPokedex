@@ -23,14 +23,26 @@ Para poder utilizar el proyecto en localhost en necesario clonarlo y tener algun
     <li>Git para poder gestionar las versiones.
 </ul>
 
-<h1>Como Clonar</h1>
-Comando para clonar:
-<br><br>
+<h1>Clonar repositorio de GitHub</h1>
+<ol>
+<li>Comando para clonar:</li>
 
 `cd existing_folder `
 
 `git clone https://github.com/UmeBelle/pokedex.git `
 
+
+<li>Edita el archivo .gitignore con el siguiente contenido:</li>
+
+`node_modules/`<br><br>
+`.env`
+
+De esta forma indicamos que la carpeta `node_modules` y el archivo `.env` no serán incluidos en el repositorio, sólo permanecerán en el directorio de trabajo.
+
+`node_modules` contiene las dependencias y no es aconsejable añadirlo al repositorio. Su contenido será re-creado a partir del archivo `package-lock.json` una vez se despliegue en producción.
+
+`.env` es el archivo que guarda las variables de entorno. Dicho contenido nunca debe añadirse al repositorio, puesto que puede contener información sensible, tal como URLs, usuarios, contraseñas, ...
+</ol>
 <h1>Conexión a la base de datos</h1>
 Crear archivo .env y definir variables de entorno:
 <br><br>
@@ -42,18 +54,22 @@ Crear archivo .env y definir variables de entorno:
     <li>DATABASE_PORT=""
 </ul>
 
-Agregar .env a .gitignore
-
 <h1>Rutas</h1>
 Nuestras rutas y sus funciones:
 <br><br>
-<ul>
-    <li>
-    <li>
-    <li>
-    <li>
-    <li>
-</ul>
+Este backend proporpociona una API Rest con los siguientes end-points:
+
+(GET)    /api/clientes         (Lista    todos los clientes)
+(POST)   /api/clientes         (Crea     cliente)
+(GET)    /api/clientes/:id     (Lista    cliente :id)
+(PUT)    /api/clientes/:id     (Modifica cliente :id)
+(DELETE) /api/clientes/:id     (Elimina  cliente :id)
+
+(GET)    /api/articulos        (Lista    todos los artículos)
+(POST)   /api/articulos        (Crea     artículo)
+(GET)    /api/articulos/:id    (Lista    artículo :id)
+(PUT)    /api/articulos/:id    (Modifica artículo :id)
+(DELETE) /api/articulos/:id    (Elimina  artículo :id)
 
 
 <h1>Instalación</h1>

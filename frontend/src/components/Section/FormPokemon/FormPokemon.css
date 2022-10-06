@@ -19,13 +19,10 @@
     overflow: auto;
     z-index: 4;
     animation: spin 1.5s;
-    display: grid;
-    place-items: center;
 }
 
 .formPopupContent {
-    margin: 10%;
-    width: 80%;
+    padding: 10%;
 }
 
 .btnClosePopup {
@@ -76,7 +73,7 @@ POKEBALL
     top: 50%;
     left: 50%;
     transform: translate(-48%, -330%);
-    width: 100%;
+    width: 90%;
   }
   /* Poké Styles */
   .pokeball {
@@ -140,17 +137,20 @@ POKEBALL
 Buttons
 */
 .buttons {
-    margin: 5px;
+    width: 60%;
+    margin: 10%;
 }
+
+
+
 .buttons button {
     display: block;
     font-size: 18px;
     text-decoration: none;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     border: 2px solid rgb(0, 0, 0);
     border-radius: 5px;
     letter-spacing: 2px;
-    text-align: center;
     transition: all .35s;
     margin: 5px;
   }
@@ -172,7 +172,11 @@ Buttons
     color: #fff;
   }
 
-
+.buttons button:disabled{
+    background-color: #444444;
+    background: fixed #444444;
+    color: #000000;
+}
 /*type color*/
 
 .rock {

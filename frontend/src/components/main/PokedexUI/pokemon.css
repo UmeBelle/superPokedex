@@ -17,11 +17,10 @@
   grid-template-rows: 82% 18%;
   width: 100%;
   height: 100%;
-  background-color: white;
+
   border-radius: 8px;
   font-size: x-small;
   animation: fadein 2s;
-  
 }
 
 .id-pokemon {
@@ -39,10 +38,10 @@
 .foto-card-pokemon {
   grid-row: 1/2;
   margin: auto;
-  border-radius: 9px 9px 9px 9px;
+  border-radius: 15px;
   height: 98%;
   width: 97%;
-  background-color: rgba(245, 245, 245, 0.459);
+  background-color: rgba(222, 218, 218, 0.459);
   display: flex;
   flex-direction: column;
   position: relative;
@@ -139,7 +138,7 @@
 }
 
 .pokeball-nav {
-  width: 2.5rem;
+  width: 2.3rem;
   margin: auto;
   animation: jump 2.6s infinite;
 }
@@ -201,12 +200,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 20%;
+  width: 47%;
 }
 
 @media (min-width: 700px) and (max-width: 1600px) {
-  
-  
   .container-nav {
     display: flex;
     justify-content: space-between;
@@ -235,13 +232,12 @@
 
   .container-pokemon {
     display: grid;
-    grid-template-columns: repeat(4 , 18rem );
+    grid-template-columns: repeat(4, 18rem);
     grid-template-rows: repeat(6, 20rem);
     grid-gap: 30px;
     justify-content: center;
     align-content: center;
     margin-top: 3%;
-  
   }
   .id-pokemon {
     display: flex;
@@ -264,7 +260,22 @@
     margin: auto;
   }
   .pokemonimg:hover {
-    animation: float 2s infinite;
+    width: 74%;
+    animation: float 1.7s infinite;
+  }
+  @keyframes shake {
+    0% {
+      transform: rotate(7deg);
+    }
+    25% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(-7deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
   }
   @keyframes float {
     0% {
@@ -353,6 +364,7 @@
   .pokemonimg:hover {
     animation: float 5s infinite;
   }
+
   @keyframes float {
     0% {
       transform: translatey(0px);
@@ -366,16 +378,29 @@
   }
 }
 @media (min-width: 320px) and (max-width: 480px) {
+  .container-Order {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+  }
+
+  .pokeball-nav {
+    width: 1.7rem;
+    margin: auto;
+    animation: jump 2.6s infinite;
+  }
+
   #bodyUI {
     background-color: whitesmoke;
   }
- 
+
   h1 {
     font-size: 25px;
   }
 
   .container-nav {
-    margin-left: 1vh;
+
     display: flex;
     justify-content: space-around;
   }

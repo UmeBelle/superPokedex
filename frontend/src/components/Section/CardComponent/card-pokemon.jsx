@@ -12,22 +12,19 @@ const Card = () => {
   let navigate = useNavigate();
   const [pokemons, setPokemons] = useState([]);
   const [pokemon, setPokemon] = useState({});
-  // async function getPokemon(name) {
-  //   const data = await item.getPokemones();
-  //   setPokemons(data);
-  //   return data.find((pokemon) => pokemon.name === name);
-  // }
+
   useEffect(() => {
     async function fetchApi() {
       const data = await item.getPokemones();
       console.log(data);
       setPokemons(data);
-      const pokemon = data.find((pokemon) => pokemon.name === name);
+      const poke = data.find((pokemon) => pokemon.name === name);
       console.log(name);
 
-      setPokemon(pokemon);
+      setPokemon(poke);
     }
     fetchApi();
+    console.log("los poke son: " + pokemon)
   }, []);
 
   function moverIzquierda() {

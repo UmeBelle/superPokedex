@@ -1,15 +1,23 @@
 # Pokedex
-Tercer proyecto bootcamp 2022
+Proyecto bootcamp 2022<br><br>
+Creación de una Pokedéx en la cuál nos permite visualizar las fichas de diversas especies de Pokemones y agregar nuevos.<br><br>
 
-Este es el repositorio de la POKEDEX. Se encuentra el backend y el frontend.
+Este es el repositorio de la Pokedex. Se encuentra el Backend y el Frontend.
+<h1>Principales funcionalidades del proyecto</h1>
+<ul>
+    <li>Mostrar listado de pokemones obteniendolos de la basa de datos
+    <li>Buscar pokemones en el listado
+    <li>Mostrar card con características individuales de cada pokemon
+    <li>Permitir al usuario agregar un nuevo pokemon con todas sus características
+    <li>Login del usuario y verificación
+</ul>
 
-<h1>Contenido</h1>
-El proyecto esta realizado en:
+<h1>BACKEND</h1>
+Tecnologías utilizadas:
 <br><br>
 <ul>
     <li>Node js
     <li>express js
-    <li>React js
 </ul>
 
 <h1>Programas necesarios</h1>
@@ -39,11 +47,11 @@ Para poder utilizar el proyecto en localhost en necesario clonarlo y tener algun
 
 De esta forma indicamos que la carpeta `node_modules` y el archivo `.env` no serán incluidos en el repositorio, sólo permanecerán en el directorio de trabajo.
 
-`node_modules` contiene las dependencias y no es aconsejable añadirlo al repositorio. Su contenido será re-creado a partir del archivo `package-lock.json` una vez se despliegue en producción.
+`node_modules` contiene las dependencias y no es aconsejable añadirlo al repositorio. Su contenido será re-creado a partir del archivo `package-lock.json`.
 
-`.env` es el archivo que guarda las variables de entorno. Dicho contenido nunca debe añadirse al repositorio, puesto que puede contener información sensible, tal como URLs, usuarios, contraseñas, ...
+`.env` es el archivo que guarda las variables de entorno. Nunca debe añadirse al repositorio, puede contener información sensible.
 </ol>
-<h1>Conexión a la base de datos</h1>
+<h1>Archivo de configuración .env</h1>
 Crear archivo .env y definir variables de entorno:
 <br><br>
 <ul>
@@ -58,19 +66,11 @@ Crear archivo .env y definir variables de entorno:
 Nuestras rutas y sus funciones:
 <br><br>
 Este backend proporpociona una API Rest con los siguientes end-points:
-
-(GET)    /api/clientes         (Lista    todos los clientes)
-(POST)   /api/clientes         (Crea     cliente)
-(GET)    /api/clientes/:id     (Lista    cliente :id)
-(PUT)    /api/clientes/:id     (Modifica cliente :id)
-(DELETE) /api/clientes/:id     (Elimina  cliente :id)
-
-(GET)    /api/articulos        (Lista    todos los artículos)
-(POST)   /api/articulos        (Crea     artículo)
-(GET)    /api/articulos/:id    (Lista    artículo :id)
-(PUT)    /api/articulos/:id    (Modifica artículo :id)
-(DELETE) /api/articulos/:id    (Elimina  artículo :id)
-
+<ul>
+    <li>(post)    api/registro         (Registro usuarios)
+    <li>(post)   api/login            (Login usuarios)
+    <li>(get)   api/pokedex          (Listado de pokemones)
+</ul>
 
 <h1>Instalación</h1>
 Ya clonado el proyecto es necesario instalar todas las dependencias con el comando:
@@ -78,7 +78,7 @@ Ya clonado el proyecto es necesario instalar todas las dependencias con el coman
 
 `npm install `
 
-<h3>Run en LocalHost:</h3>
+<h1>Test</h1>
 Cambiar las llaves a modo pruebas en el archivo config.js<br><br>
 Cuando las llaves esten en modo pruebas ejecutar el comando:
 
@@ -86,23 +86,46 @@ Cuando las llaves esten en modo pruebas ejecutar el comando:
 
 Este a su vez ejecutara nodemon app.js, el cual ayudará a la funcionalidad de pruebas y dev.
 
-<h3>Run en Producción:</h3>
-Cambiar las llaves a modo producción en el archivo config.js
-Cuando las llaves esten en modo producción ejecutar el comando:
-
-`npm start`
-
-Este a su vez ejecutará el comando node app.js el cual estará preparado para la ejecución del servidor en producción
-
-<h1>Levantar backend en LocalHost</h1>
-Ejecutar el comando
+<h1>Levantar backend</h1>
+Ejecutar el comando:
 <br><br>
+
+`cd pokedex`
+
+`cd backend`
 
 `npm run dev`
 
-<h1>Levanatr frontend en LocalHost</h1>
-Ejecutar el comando 
 <br><br>
+<h1>FRONTEND</h1>
+Tecnologías utilizadas:
+<br><br>
+<ul>
+    <li>HTML
+    <li>CSS
+    <li>Bootstrap
+    <li>JavaScript                      
+    <li>React
+</ul>
+
+<h1>Programas necesarios</h1>
+<ul>
+    <li>Next js
+</ul>
+
+<h1>Instalación</h1>
+Ya clonado el proyecto es necesario instalar todas las dependencias con el comando:
+<br><br>
+
+`npm install `
+
+<h1>Levantar frontend</h1>
+Ejecutar el comando en una nueva terminal:
+<br><br>
+
+`cd pokedex`
+
+`cd frontend`
 
 `npm start `
 

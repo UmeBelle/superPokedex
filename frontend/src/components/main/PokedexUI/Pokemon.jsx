@@ -15,8 +15,8 @@ const Pokedex = () => {
   const [pokemonColor, setPokemonColor] = useState("white");
   const [showPokemons, setShowPokemons] = useState([]);
 
-  async function getPokemons() {
 
+  async function getPokemons() {
     const data = await pokemons.getPokemones();
     console.log(data)
     setShowPokemons(data);

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import auth from "../../api/ApiAuth";
 import pokemons from "../../api/ApiPokemones";
-
+import { useEffect } from "react";
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -23,6 +23,7 @@ function Login() {
         if (res.data.success) {
           localStorage.removeItem("token");
           localStorage.setItem("token", res.data.token);
+
           navigate("/pokedex");
           alert(res.data.message);
         }
@@ -78,10 +79,10 @@ function Login() {
           <button onClick={handleSubmit} className="ingresar">
             Ingresar
           </button>
-
-          
         </div>
-        <a className="linkregister" href="/register">Sign up</a>
+        <a className="linkregister" href="/register">
+          Sign up
+        </a>
       </div>
     </body>
   );

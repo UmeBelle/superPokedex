@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/register" element={<RegisterComponent />}></Route>
         <Route path="/pokedex" element={<Pokedex />}></Route>
-        <Route path=":nombre" element={<Card />}></Route>
+        <Route path=":name" element={<Card />}></Route>
         <Route path="/login" element={<LoginComponent />}></Route>
         <Route path="*" element={<Navigate to="/register" replace />}></Route>
       </Routes>

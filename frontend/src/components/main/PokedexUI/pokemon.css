@@ -10,7 +10,7 @@
 
 .container-pokemon {
   display: grid;
-  grid-template-columns: repeat(4, 204px);
+  grid-template-columns: repeat(3, 204px);
   grid-template-rows: 112px 112px 112px;
   grid-gap: 6px;
   justify-content: center;

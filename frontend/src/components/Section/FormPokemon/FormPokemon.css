@@ -1,7 +1,15 @@
 
 
 .imagePokemon {
-  display: none;
+    display: grid;
+    grid-area: b;
+    width: 80%;
+    margin: 0 0 10% 20%;
+}
+
+.imagePokemon img {
+    width: 80%;
+    height: auto;
 }
 
 
@@ -22,6 +30,7 @@
     border: 3px solid rgba(0, 0, 0, 0.863);
     border-radius: 10px;
     margin-left:20%;
+    margin-top: 5%;
     overflow: auto;
     z-index: 4;
     animation: spin 1s;
@@ -29,14 +38,22 @@
 
 .formPopupContent {
     padding: 3%;
-    text-align: center;
+    display: grid;
+    grid-template-rows: repeat(4, 30vh);
+    grid-template-columns: 50% 50%;
+    grid-template-areas: 
+        "a b"
+        "c c"
+        "d e"
+        "f f";
 }
 
 .btnClosePopup {
-    border-radius: 10px;
+    border-radius: 50%;
+    width: 4%;
     margin-right: -9.5rem;
     position: fixed;
-    right: calc(35% - 40px);
+    right: calc(30% - 40px);
     top: 3%;
     z-index: 5;
     background-color: rgb(0, 0, 0);
@@ -104,10 +121,11 @@ POKEBALL
     width: 15%;
   }
   .add {
-    margin-top: 2%;
+    margin: 40% 50%;
     border-radius: 5px;
     border: 1px solid;
-    width: 10%;
+    width: 80%;
+    height: 20%
   }
   
   /* Poké Styles */
@@ -179,6 +197,7 @@ Buttons
     margin-top: 10%;
     margin-bottom: 10%;
     margin-left: 7%;
+    grid-area: c;
 }
 .botones {
   margin-bottom: 3%;
@@ -310,30 +329,29 @@ Buttons
 
 .firstThree {
   margin-top: 10%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   margin-bottom: -10%;
-
+    grid-area: a;
 }
 .secondThree {
   margin-top: -7%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  
+  grid-area: d;
 
 }
 .stats{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  grid-area: e;
   
+}
+
+
+
+.spanStats {
+    display: grid;
+    grid-template-columns: 40% 40%;
 }
 
 
 input {
-  width: 60%;
+  width: 30%;
   border-radius: 10px;
 }
 

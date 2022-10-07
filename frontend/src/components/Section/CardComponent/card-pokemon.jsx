@@ -12,6 +12,7 @@ const Card = () => {
   let navigate = useNavigate();
   const [pokemons, setPokemons] = useState([]);
   const [pokemon, setPokemon] = useState({});
+  const [loading, setLoading]= useState(false);
 
   useEffect(() => {
     async function fetchApi() {
@@ -28,6 +29,7 @@ const Card = () => {
   }, []);
 
   function moverIzquierda() {
+    setLoading(true)
     let index = pokemons.findIndex((pokemon) => pokemon.name === name);
 
     if (index === 0) {
@@ -42,6 +44,7 @@ const Card = () => {
   }
 
   function moverDerecha() {
+    setLoading(true)
     let index = pokemons.findIndex((pokemon) => pokemon.name === name);
 
     if (index === pokemons.length - 1) {
@@ -57,10 +60,17 @@ const Card = () => {
 
   return (
     <body id="bodycard">
+      
       <div  className="Contenedor-principal">
+     
+      
         <div id={pokemon.type1} className={`Contenedor-card ${pokemon.type1}`}>
           <div className="Para-el-background" >
+            
+            
             <div className="Fondo-pokeball">
+              
+            
               <img
                 className="Imagen-pokeball"
                 src="./Img/pokeball-blanca.png"
@@ -68,6 +78,7 @@ const Card = () => {
               />
             </div>
             <div className="botones-derecha-izquierda">
+              
               <div onClick={moverIzquierda} className="mover-izquierda">
                 {" "}
                 &lt;{" "}
@@ -90,6 +101,16 @@ const Card = () => {
                 <h2 className="name-pokemon">{pokemon.name}</h2>
               </div>
               <div className="ID-pokemon">
+              {loading && (
+            <>
+              {" "}
+              <div className="loader">
+              <div class="spinner-grow" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+              </div>
+            </>
+          )}
                 <p>{pokemon.id}</p>
               </div>
             </div>

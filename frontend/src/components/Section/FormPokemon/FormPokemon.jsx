@@ -176,14 +176,18 @@ const PopupFormPokemon = (props) => {
             <div className="formPopup">
                 <div className="center-on-page">
                     <div className="pokeball">
+                        
                         <div className="pokeball__button"></div>
                     </div>
+                    
                 </div>
                 <form className="formPopupContent" onSubmit={sendNewPokemon}>
+                <h1>Add a new pokemon</h1>
+                
                     <div className="firstThree">
-                        Name: <input name="name" className="name" onChange={handleChange} required/> <br></br>
-                        ID: <input name="id" type="number" className="id" onChange={handleChange} required/> <br></br>
-                        Image URL: <input name="image" className="image" onChange={handleChange} required/><button type="button" className="btnLoadImage" onClick={() => {loadImage()}}>Load</button> <br></br>                        
+                    <h6>Name</h6><br></br> <input name="name" className="name" onChange={handleChange} required/> <br></br>
+                    <h6>ID</h6><br></br> <input name="id" type="number" className="id" onChange={handleChange} required/> <br></br>
+                    <h6>Image URL</h6><br></br><input name="image" className="image" onChange={handleChange} required/><button type="button" className="btnLoadImage" onClick={() => {loadImage()}}>Load</button> <br></br>                        
                     </div>
                     <div className="imagePokemon">
                         <img src={imagePoke} alt="[Pokemon Image not loaded]"/>
@@ -202,24 +206,31 @@ const PopupFormPokemon = (props) => {
                             <button type="button" name="typeSteel" className="steel" onClick={() => {handleType("steel")}} disabled={false} required>Steel</button> <button type="button" name="typeRock" className="rock" onClick={() => {handleType("rock")}} disabled={false} required>Rock</button> <button type="button" name="typeNone" className="none" onClick={() => {handleType("none")}} disabled={false} required>None</button>
                         </div>
                     </div>
-                    
-                    Weight: <input type="number" name="weight" className="weight" onChange={handleChange} required/> <br></br>
-                    Height: <input type="number" name="height" className="height" onChange={handleChange} required/> <br></br>
-                    Ability 1: <input className="ability1" name="ability1" onChange={handleChange} required/> <br></br>
-                    Ability 2:<input className="ability2" name="ability2" onChange={handleChange} required/> <br></br>
-                    About: <input className="flavor" name="flavorText" onChange={handleChange} required/> <br></br>
+                    <div className="secondThree">
+                       <h2>Abouts</h2>
+                    <h6>Weight</h6><br></br><input type="number" name="weight" className="weight" onChange={handleChange} required/> <br></br>
+                    <h6>Height</h6><br></br><input type="number" name="height" className="height" onChange={handleChange} required/> <br></br>
+                    <h6>Ability 1</h6><br></br> <input className="ability1" name="ability1" onChange={handleChange} required/> <br></br>
+                    <h6>Ability 2</h6><br></br><input className="ability2" name="ability2" onChange={handleChange} required/> <br></br>
+                    <h6>About</h6><br></br><input className="flavor" name="flavorText"  onChange={handleChange} required/> <br></br>
+                    </div>
+                    <div className="statbuttons">
+                        
                     <h2>Stats:</h2>
+                    <div className="botones">
                     <button type="button" className="randomStats" name="statsRandom" onClick={handleChange}>Random</button> 
                     <button type="button" className="chooseStats" name="statsFixed" onClick={handleChange}>Choose</button>
-                    <div className="stats">
-                        HP: <input type="number" className="hp" name="hp" onChange={handleChange} disabled={statsState} required/> 
-                        ATK: <input type="number" className="atk" name="atk" onChange={handleChange} disabled={statsState} required/> 
-                        DEF: <input type="number" className="def" name="def" onChange={handleChange} disabled={statsState} required/> <br></br>
-                        SATK: <input type="number" className="satk" name="satk" onChange={handleChange} disabled={statsState} required/> 
-                        SDEF: <input type="number" className="sdef" name="sdef" onChange={handleChange} disabled={statsState} required/>
-                        SPE<input type="number" className="spe" name="spe" onChange={handleChange} disabled={statsState} required/> <br></br>
                     </div>
-                    <button>Add</button>
+                    </div>
+                    <div className="stats">
+                        <h6>HP </h6><input type="number" className="hp" name="hp" onChange={handleChange} disabled={statsState} required/> <br></br>
+                        <h6>ATK</h6><input type="number" className="atk" name="atk" onChange={handleChange} disabled={statsState} required/> <br></br>
+                        <h6>DEF</h6><input type="number" className="def" name="def" onChange={handleChange} disabled={statsState} required/> <br></br>
+                        <h6>SATK</h6><input type="number" className="satk" name="satk" onChange={handleChange} disabled={statsState} required/> <br></br>
+                        <h6>SDEF</h6><input type="number" className="sdef" name="sdef" onChange={handleChange} disabled={statsState} required/><br></br>
+                        <h6>SPE</h6><input type="number" className="spe" name="spe" onChange={handleChange} disabled={statsState} required/> <br></br>
+                    </div>
+                    <button className="add">Add</button>
                 </form>
             </div>
         </div>

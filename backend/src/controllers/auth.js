@@ -15,7 +15,7 @@ const registro = async (req, res) => {
         data: [],
         message: "Ya existe un registro con ese username, prueba con otro!",
         success: false,
-      });
+      });cd
     }
 
     const salt = await bcrypt.genSalt(10);

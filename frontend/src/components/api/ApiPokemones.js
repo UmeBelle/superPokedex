@@ -15,7 +15,7 @@ const pokemons = {
         }
       })
       .catch((error) => {
-        alert("Hay un error inesperado: " + error);
+      alert("Se produjo un error inesperado:  "   + error);
       });
   },
 };

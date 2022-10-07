@@ -67,9 +67,11 @@ Nuestras rutas y sus funciones:
 <br><br>
 Este backend proporpociona una API Rest con los siguientes end-points:
 <ul>
-    <li>(post)    api/registro         (Registro usuarios)
-    <li>(post)   api/login            (Login usuarios)
-    <li>(get)   api/pokedex          (Listado de pokemones)
+    <li>(post)    /auth/registro         (Registro usuarios)
+    <li>(post)   /auth/login            (Login usuarios)
+    <li>(get)   /pokemon/pokedex         (Listado de pokemones)
+    <li> router.get("/pokedex", verifyToken, obtenerPokemones);
+    <li> router.post("/newentry", verifyToken, addPokemon);
 </ul>
 
 <h1>Instalación</h1>

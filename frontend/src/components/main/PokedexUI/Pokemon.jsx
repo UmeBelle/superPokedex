@@ -7,58 +7,65 @@ import { useEffect } from "react";
 import pokemons from "../../api/ApiPokemones";
 import PopupFormPokemon from "../../Section/FormPokemon/FormPokemon";
 
-
 const Pokedex = () => {
   const [filterList, setFilterList] = useState([]);
   const [estadoButton, setEstadoButton] = useState(0);
   const [mostrarIcono, setMostrarIcono] = useState(false);
   const [pokemonColor, setPokemonColor] = useState("white");
   const [showPokemons, setShowPokemons] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const delay = () => {
+    const timeout = setTimeout(() => {
+      setLoading(false); //Se corre  luego del tiempo establecido en la siguiente linea (milisegundos)
+    }, 500);
+    return timeout;
+  };
 
   async function getPokemons() {
-
+    setLoading(true);
     const data = await pokemons.getPokemones();
-    console.log(data)
+    console.log(data);
     setShowPokemons(data);
+    delay();
   }
-  
 
   useEffect(() => {
     getPokemons();
-  },[]);
-
+  }, []);
 
   useEffect(() => {
     if (showPokemons) {
-      setFilterList(showPokemons)
+      setFilterList(showPokemons);
     }
-  }, [showPokemons]) 
-
-  
+  }, [showPokemons]);
 
   const handleInputChange = (e) => {
+    setLoading(true);
     if (e.target.value === "") {
       setFilterList(showPokemons);
       setMostrarIcono(false);
-      return;
     }
+
+    delay();
+
     const filteredList = showPokemons.filter(
       (item) =>
         item.name.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1
     );
-
     setFilterList(filteredList);
     setMostrarIcono(true);
   };
 
   const ordenarPokemon = () => {
-    let arrayOrdenado= [];
+    let arrayOrdenado = [];
 
     if (estadoButton === 0) {
       arrayOrdenado = [...showPokemons].sort((a, b) =>
         a.name !== b.name ? (a.name < b.name ? -1 : 1) : 0
       );
-            setFilterList(arrayOrdenado);
+
+      setFilterList(arrayOrdenado);
       setEstadoButton(1);
     } else if (estadoButton === 1) {
       arrayOrdenado = [...showPokemons].sort((a, b) =>
@@ -66,7 +73,6 @@ const Pokedex = () => {
       );
       setFilterList(arrayOrdenado);
       setEstadoButton(0);
-     
     }
     console.log(arrayOrdenado);
   };
@@ -75,16 +81,19 @@ const Pokedex = () => {
 
   const openPopup = () => {
     setIsOpen(true);
-  }
+  };
 
   return (
     <>
-    <div>
-      {isOpen ? <PopupFormPokemon 
-        closePopup={() => {
-          setIsOpen(false);
-        }}/> : null}
-    </div>
+      <div>
+        {isOpen ? (
+          <PopupFormPokemon
+            closePopup={() => {
+              setIsOpen(false);
+            }}
+          />
+        ) : null}
+      </div>
       <body id="bodyUI">
         <header>
           <div className="container-nav">
@@ -106,34 +115,68 @@ const Pokedex = () => {
                     <b>Z</b>
                   </p>
                 </div>
-              ) : (
+                
+              )
+               : (
                 <p className="hash" onClick={ordenarPokemon}>
                   #
                 </p>
               )}
 
               <i class="fa-solid fa-arrow-down" onClick={ordenarPokemon}></i>
+              
             </div>
+            {loading && (
+              <>
+                <div className="loadermain">
+                <div  class="spinner-grow" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+                </div>
+              </>
+            )}
           </div>
-          <> </>
+          
+          
           <div className="Input-search">
+          <div className="loadermain">
+          {" "}
+           
+
+          </div>
+            
             <input
               className="input-login"
               type="text"
               onChange={handleInputChange}
               placeholder="Buscar"
             />
+            
+          </div>
+          
+          
+          <div>
           </div>
         </header>
         
+
         <div className="container-pokemon">
-            <div style={{cursor: `url('./img/cursor-add.png'), pointer`}} onClick={openPopup}>
-              <div className="foto-card-pokemon">
-                <p className="id-pokemon">???</p>
-                <img className="pokemonimg" src="./img/Pokeball.png" alt="Add pokemon" />
-                <p className="nombre-pokemon" style={{color: "black"}}>New Pokemon</p>
-              </div>
+          <div
+            style={{ cursor: `url('./img/cursor-add.png'), pointer` }}
+            onClick={openPopup}
+          >
+            <div className="foto-card-pokemon">
+              <p className="id-pokemon">???</p>
+              <img
+                className="addpokemonimg"
+                src="./img/addpokemon.png"
+                alt="Add pokemon"
+              />
+              <p className="nombre-pokemon" style={{ color: "black" }}>
+                New Pokemon
+              </p>
             </div>
+          </div>
 
           {filterList.map((item) => {
             return (
@@ -158,6 +201,6 @@ const Pokedex = () => {
       </body>
     </>
   );
-}; 
+};
 
 export default Pokedex;

@@ -8,7 +8,8 @@ const Porcentajes = ({ pokemon }) => {
   return (
     <section>
       <>
-        <div className="card">
+        <div className="card"
+        style={{background: "whitesmoke"}}>
           <div className="skills">
             <p
               className={`skills-tech ${item.type1}`}

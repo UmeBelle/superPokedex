@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 function App() {
+  
   return (
     <BrowserRouter>
       <Routes>
@@ -15,7 +16,7 @@ function App() {
         <Route path="/pokedex" element={<Pokedex />}></Route>
         <Route path=":name" element={<Card />}></Route>
         <Route path="/login" element={<LoginComponent />}></Route>
-        <Route path="*" element={<Navigate to="/register" replace />}></Route>
+        <Route path="*" element={<Navigate to='/login' replace />}></Route>
       </Routes>
     </BrowserRouter>
   );

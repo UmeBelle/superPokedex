@@ -4,11 +4,12 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import auth from "../../api/ApiAuth";
 import pokemons from "../../api/ApiPokemones";
-
+import { useEffect } from "react";
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [loading,setLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -18,13 +19,15 @@ function Login() {
         username: username,
         password: password,
       };
-
+      setLoading(true);
       await auth.login(usuario).then((res) => {
         if (res.data.success) {
           localStorage.removeItem("token");
           localStorage.setItem("token", res.data.token);
+
           navigate("/pokedex");
           alert(res.data.message);
+          setLoading(false);
         }
       });
     } catch (error) {
@@ -74,14 +77,27 @@ function Login() {
           />
         </form>
 
-        <div className="buttons">
+        <div className="div-ingresar">
           <button onClick={handleSubmit} className="ingresar">
             Ingresar
           </button>
-
           
         </div>
-        <a className="linkregister" href="/register">Sign up</a>
+        <div>
+        {loading && (
+            <>
+              {" "}
+              <div class="spinner-grow" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </>
+          )}
+        </div>
+        <div className="signup">
+        <a className="linkregister" href="/register">
+          Sign up
+        </a>
+        </div>
       </div>
     </body>
   );

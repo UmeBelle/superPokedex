@@ -1,3 +1,13 @@
+.loadermain {
+  display: flex;
+  margin-top: 2rem;
+  margin-right: 5rem;
+ 
+}
+
+
+
+
 .container-pokemon {
   display: grid;
   grid-template-columns: repeat(4, 204px);
@@ -145,7 +155,7 @@
 
 .Input-search {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .input-login {
@@ -168,7 +178,7 @@
 
 .img-container {
   display: flex;
-  width: 50%;
+  width: 55%;
   justify-content: space-around;
   margin-left: 20px;
   margin-top: 3vh;
@@ -215,8 +225,7 @@
   }
 
   .Input-search {
-    display: flex;
-    justify-content: space-around;
+    margin-right: 10%;
   }
 
   .input-login {
@@ -258,6 +267,14 @@
   .pokemonimg {
     width: 67%;
     margin: auto;
+  }
+  .addpokemonimg{
+    width: 50%;
+    margin: auto;
+  }
+  .addpokemonimg:hover {
+    width: 54%;
+    animation: float 1.7s infinite;
   }
   .pokemonimg:hover {
     width: 74%;
@@ -378,6 +395,23 @@
   }
 }
 @media (min-width: 320px) and (max-width: 480px) {
+
+  .loadermain {
+    display: flex;
+    margin-top: 1rem;
+    margin-right: 0rem;
+    width: 10px;
+    height: 10px;
+   
+  }
+  .addpokemonimg{
+    width: 46%;
+    margin: auto;
+  }
+  .addpokemonimg:hover {
+    width: 54%;
+    animation: float 1.7s infinite;
+  }
   .container-Order {
     display: flex;
     justify-content: center;
@@ -400,7 +434,7 @@
   }
 
   .container-nav {
-
+    
     display: flex;
     justify-content: space-around;
   }
@@ -414,16 +448,23 @@
   .Input-search {
     display: flex;
     justify-content: space-around;
+
   }
 
+  .loadermain{
+    margin-top: 6%;
+    width: 30px;
+    height: 10px;
+  }
   .input-login {
     font-family: Poppins, sans-serif;
     font-weight: 350;
-    width: 78%;
+    width: 75%;
     font-size: smaller;
     border-radius: 5px;
     border: 1px solid grey;
     height: 2vh;
+    margin-right: 1.5rem;
 
     content: icon;
     margin-bottom: 10px;
@@ -431,8 +472,8 @@
 
   .container-pokemon {
     display: grid;
-    grid-template-columns: repeat(3, 94px);
-    grid-template-rows: 102px 102px 102px;
+    grid-template-columns: repeat(3, 104px);
+    grid-template-rows: 112px 112px 112px;
     grid-gap: 10px;
     justify-content: center;
     align-content: center;
@@ -468,8 +509,22 @@
   .pokemonimg {
     width: 64%;
     margin: auto;
+   
   }
   .pokemonimg:hover {
     animation: float 2s infinite;
   }
+
+  .container-nav {
+    margin-left: 0.5rem;
+  display: flex;
+  justify-content: space-around;
+}
+.Input-search {
+  display: flex;
+  justify-content: space-evenly;
+  margin-right: 1rem;
+}
+
+ 
 }

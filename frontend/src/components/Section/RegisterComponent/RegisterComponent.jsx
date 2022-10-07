@@ -7,6 +7,7 @@ import auth from "../../api/ApiAuth";
 function Register() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -22,15 +23,19 @@ function Register() {
         password: password,
       };
 
+      setLoading(true);
       await auth.registro(usuario).then((res) => {
         if (res.data.success) {
           localStorage.removeItem("token");
           localStorage.setItem("token", res.data.token);
           navigate("/login");
+          setLoading(false);
           alert(res.data.message);
         }
+        
       });
     } catch (error) {
+      setLoading(false);
       alert(error.response.data.message);
     }
   };
@@ -46,8 +51,8 @@ function Register() {
           />
           <h1 className="tituloLogin">Pokedex</h1>
         </div>
-        <h4>Registro</h4>
-        <form>
+        <h4>Sign-up</h4>
+        <form className="form-reg">
           <p>Username</p>
           <input
             className="input1"
@@ -71,13 +76,29 @@ function Register() {
           />
         </form>
 
-        <div className="buttons">
+        <div className="div-ingresar">
           <button onClick={handleRegister} className="ingresar">
-            Registrarse
+            Submit
           </button>
+         
         </div>
-        <p>Already have an account?</p>
-        <a className="linklogin" href="/login"> Login</a>
+        <div> {loading && (
+            <>
+              {" "}
+              <div class="spinner-grow" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </>
+          )}</div>
+          <div className="signup">
+        <p>
+          Already have an account?{" "}
+          <a className="linklogin" href="/login">
+            {" "}
+            Login
+          </a>
+        </p>
+        </div>
       </div>
     </body>
   );

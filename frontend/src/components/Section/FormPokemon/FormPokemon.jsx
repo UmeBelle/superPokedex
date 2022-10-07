@@ -163,10 +163,10 @@ const PopupFormPokemon = (props) => {
     const [imagePoke, setImagePoke] = useState("./Img/Pokeball.png");
 
     const loadImage = () => {
-        const imageInput = document.getElementsByClassName("image");
+        const imageInput = document.getElementsByName("image");
         console.log(imageInput);
-        console.log(imageInput.value);
-        setImagePoke(imageInput.value);
+        console.log(imageInput[0].value);
+        setImagePoke(imageInput[0].value);
     }
     
     return(
@@ -182,9 +182,10 @@ const PopupFormPokemon = (props) => {
                     
                 </div>
                 <form className="formPopupContent" onSubmit={sendNewPokemon}>
-                <h1>Add a new pokemon</h1>
+                
                 
                     <div className="firstThree">
+                    <h1>Add a new pokemon</h1>
                     <h6>Name</h6><br></br> <input name="name" className="name" onChange={handleChange} required/> <br></br>
                     <h6>ID</h6><br></br> <input name="id" type="number" className="id" onChange={handleChange} required/> <br></br>
                     <h6>Image URL</h6><br></br><input name="image" className="image" onChange={handleChange} required/><button type="button" className="btnLoadImage" onClick={() => {loadImage()}}>Load</button> <br></br>                        
@@ -208,27 +209,33 @@ const PopupFormPokemon = (props) => {
                     </div>
                     <div className="secondThree">
                        <h2>Abouts</h2>
-                    <h6>Weight</h6><br></br><input type="number" name="weight" className="weight" onChange={handleChange} required/> <br></br>
-                    <h6>Height</h6><br></br><input type="number" name="height" className="height" onChange={handleChange} required/> <br></br>
-                    <h6>Ability 1</h6><br></br> <input className="ability1" name="ability1" onChange={handleChange} required/> <br></br>
-                    <h6>Ability 2</h6><br></br><input className="ability2" name="ability2" onChange={handleChange} required/> <br></br>
-                    <h6>About</h6><br></br><input className="flavor" name="flavorText"  onChange={handleChange} required/> <br></br>
+                    <p>Weight</p><br></br><input type="number" name="weight" className="weight" onChange={handleChange} required/> <br></br>
+                    <p>Height</p><br></br><input type="number" name="height" className="height" onChange={handleChange} required/> <br></br>
+                    <p>Ability 1</p><br></br> <input className="ability1" name="ability1" onChange={handleChange} required/> <br></br>
+                    <p>Ability 2</p><br></br><input className="ability2" name="ability2" onChange={handleChange} required/> <br></br>
+                    <p>About</p><br></br><input className="flavor" name="flavorText"  onChange={handleChange} required/> <br></br>
                     </div>
-                    <div className="statbuttons">
-                        
-                    <h2>Stats:</h2>
-                    <div className="botones">
-                    <button type="button" className="randomStats" name="statsRandom" onClick={handleChange}>Random</button> 
-                    <button type="button" className="chooseStats" name="statsFixed" onClick={handleChange}>Choose</button>
-                    </div>
-                    </div>
+
                     <div className="stats">
-                        <h6>HP </h6><input type="number" className="hp" name="hp" onChange={handleChange} disabled={statsState} required/> <br></br>
-                        <h6>ATK</h6><input type="number" className="atk" name="atk" onChange={handleChange} disabled={statsState} required/> <br></br>
-                        <h6>DEF</h6><input type="number" className="def" name="def" onChange={handleChange} disabled={statsState} required/> <br></br>
-                        <h6>SATK</h6><input type="number" className="satk" name="satk" onChange={handleChange} disabled={statsState} required/> <br></br>
-                        <h6>SDEF</h6><input type="number" className="sdef" name="sdef" onChange={handleChange} disabled={statsState} required/><br></br>
-                        <h6>SPE</h6><input type="number" className="spe" name="spe" onChange={handleChange} disabled={statsState} required/> <br></br>
+                        <h2>Stats:</h2>
+                        <div className="botones">
+                        <button type="button" className="randomStats" name="statsRandom" onClick={handleChange}>Random</button> 
+                        <button type="button" className="chooseStats" name="statsFixed" onClick={handleChange}>Choose</button>
+                        </div>
+                        <div className="span-stats">
+                        <span>
+                            <h6>HP </h6><input type="number" className="hp" name="hp" onChange={handleChange} disabled={statsState} required/> 
+                            <h6>ATK</h6><input type="number" className="atk" name="atk" onChange={handleChange} disabled={statsState} required/> 
+                            <h6>DEF</h6><input type="number" className="def" name="def" onChange={handleChange} disabled={statsState} required/>
+                        </span>
+                        <span>
+                            <h6>SATK</h6><input type="number" className="satk" name="satk" onChange={handleChange} disabled={statsState} required/> 
+                            <h6>SDEF</h6><input type="number" className="sdef" name="sdef" onChange={handleChange} disabled={statsState} required/>
+                            <h6>SPE</h6><input type="number" className="spe" name="spe" onChange={handleChange} disabled={statsState} required/> 
+                        </span>
+                        </div>          
+                        
+                        
                     </div>
                     <button className="add">Add</button>
                 </form>
